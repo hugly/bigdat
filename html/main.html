@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../style/css/main.min.css">
+    <script src="../js/lib/jquery-1.8.3.min.js"></script>
+    <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <!--<script src="https://cdn.hcharts.cn/highstock/highstock.js"></script>-->
+    <!--<script src="https://cdn.hcharts.cn/highmaps/highmaps.js"></script>-->
+</head>
+<body>
+<div class="naver">
+    <div class="back">
+        <i class="iconfont icon-fanhui1"></i>
+        <span>取消创建</span>
+    </div>
+    <h3>新建模板</h3>
+    <div class="oper">
+        <ul>
+            <li><a href="javascript:;"><i class="iconfont icon-yulan"></i><span>预览</span></a></li>
+            <li><a href="javascript:;"><i class="iconfont icon-fabu" style="font-size: 26px; line-height: 65px;"></i><span>发布</span></a></li>
+        </ul>
+    </div>
+</div>
+<div class="container" id="container">
+    <div class="right-silder">
+        <div class="r-title">
+            <ul>
+                <li>样式</li>
+                <li>数据</li>
+            </ul>
+        </div>
+        <div class="r-container">
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="left-sidebar" id="left-silder">
+        <ul class="nav">
+            <li>
+                <div><span>线图（折线图及曲线图）</span><icon class="iconfont icon-youjiantou"></icon></div>
+                <ul class="nav-sidebar">
+                    <li><a href="javascript:;">基础折线图</a></li>
+                    <li><a href="javascript:;">通过 Ajax 加载数据</a></li>
+                    <li><a href="javascript:;">显示点值的折线图</a></li>
+                    <li><a href="javascript:;">可缩放的时间轴</a></li>
+                    <li><a href="javascript:;">坐标轴反转的曲线图</a></li>
+                    <li><a href="javascript:;">带标识的曲线图</a></li>
+                    <li><a href="javascript:;">带表示区域的曲线图</a></li>
+                    <li><a href="javascript:;">时间不连续的曲线图</a></li>
+                    <li><a href="javascript:;">对数折线图</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><span>面积图</span><icon class="iconfont icon-youjiantou"></icon></div>
+                <ul class="nav-sidebar">
+                    <li><a href="javascript:;">基础面积图</a></li>
+                    <li><a href="javascript:;">包含负值的面积图</a></li>
+                    <li><a href="javascript:;">堆叠面积图</a></li>
+                    <li><a href="javascript:;">百分比堆叠面积图</a></li>
+                    <li><a href="javascript:;">断裂的面积图</a></li>
+                    <li><a href="javascript:;">坐标轴反转的面积图</a></li>
+                    <li><a href="javascript:;">曲线面积图</a></li>
+                    <li><a href="javascript:;">面积范围图</a></li>
+                    <li><a href="javascript:;">面积范围均线图</a></li>
+                    <li><a href="javascript:;">迷你图（小图）</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><span>柱形图（柱状图及条形图）</span><icon class="iconfont icon-youjiantou"></icon></div>
+                <ul class="nav-sidebar">
+                    <li><a href="javascript:;">基础条形图</a></li>
+                    <li><a href="javascript:;">堆叠条形图</a></li>
+                    <li><a href="javascript:;">包含负值的条形图</a></li>
+                    <li><a href="javascript:;">基础柱状图</a></li>
+                    <li><a href="javascript:;">包含负值的柱状图</a></li>
+                    <li><a href="javascript:;">堆叠柱状图</a></li>
+                    <li><a href="javascript:;">分组堆叠柱状图</a></li>
+                    <li><a href="javascript:;">百分比堆叠柱状图</a></li>
+                    <li><a href="javascript:;">坐标轴标签旋转的柱状图</a></li>
+                    <li><a href="javascript:;">可下钻的柱状图</a></li>
+                    <li><a href="javascript:;">嵌套的柱状图</a></li>
+                    <li><a href="javascript:;">通过HTML表格数据创建的柱状图</a></li>
+                    <li><a href="javascript:;">柱形范围图</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><span>饼形图（饼图及环形图）</span><icon class="iconfont icon-youjiantou"></icon></div>
+                <ul class="nav-sidebar">
+                    <li><a href="javascript:;">基础饼图</a></li>
+                    <li><a href="javascript:;">带图例的饼图</a></li>
+                    <li><a href="javascript:;">双饼图</a></li>
+                    <li><a href="javascript:;">扇形图</a></li>
+                    <li><a href="javascript:;">可下钻的饼图</a></li>
+                    <li><a href="javascript:;">颜色渐变的饼图</a></li>
+                    <li><a href="javascript:;">单色调饼图</a></li>
+                    <li><a href="javascript:;">标题居中的环形图</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><span>散点图及气泡图</span><icon class="iconfont icon-youjiantou"></icon></div>
+                <ul class="nav-sidebar">
+                    <li><a href="javascript:;">散点图</a></li>
+                    <li><a href="javascript:;">气泡图</a></li>
+                    <li><a href="javascript:;">3D气泡图</a></li>
+                    <li><a href="javascript:;">带辅助线的气泡图</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><span>混合图</span><icon class="iconfont icon-youjiantou"></icon></div>
+                <ul class="nav-sidebar">
+                    <li><a href="javascript:;">多个图表共用一个提示框</a></li>
+                    <li><a href="javascript:;">柱形图、饼图、折线图混合</a></li>
+                    <li><a href="javascript:;">双坐标的折线图、柱状图混合图</a></li>
+                    <li><a href="javascript:;">多坐标轴混合图</a></li>
+                    <li><a href="javascript:;">包含趋势线的散点图</a></li>
+                    <li><a href="javascript:;">天气预报</a></li>
+                    <li><a href="javascript:;">高级时间线图</a></li>
+                    <li><a href="javascript:;">直方图</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><span>3D 图</span><icon class="iconfont icon-youjiantou"></icon></div>
+                <ul class="nav-sidebar">
+                    <li><a href="javascript:;">交互性3D柱状图</a></li>
+                    <li><a href="javascript:;">包含空值的3D柱状图</a></li>
+                    <li><a href="javascript:;">堆叠3D柱状图</a></li>
+                    <li><a href="javascript:;">3D饼图</a></li>
+                    <li><a href="javascript:;">3D环形图</a></li>
+                    <li><a href="javascript:;">3D散点图</a></li>
+                </ul>
+            </li>
+            <li>
+                <div><span>仪表图</span><icon class="iconfont icon-youjiantou"></icon></div>
+                <ul class="nav-sidebar">
+                    <li><a href="javascript:;">速度仪</a></li>
+                    <li><a href="javascript:;">仪表盘</a></li>
+                    <li><a href="javascript:;">活动图</a></li>
+                    <li><a href="javascript:;">时钟</a></li>
+                    <li><a href="javascript:;">双刻度仪表图</a></li>
+                    <li><a href="javascript:;">伏压图</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="content"></div>
+</div>
+<script type="text/javascript" src="../js/main.js"></script>
+</body>
+</html>
