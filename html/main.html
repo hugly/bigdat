@@ -5,7 +5,9 @@
     <title>Title</title>
     <link rel="stylesheet" href="../font/iconfont.css">
     <link rel="stylesheet" href="../style/css/main.min.css">
+    <script src="../js/config.js"></script>
     <script src="../js/lib/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
     <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
     <!--<script src="https://cdn.hcharts.cn/highstock/highstock.js"></script>-->
     <!--<script src="https://cdn.hcharts.cn/highmaps/highmaps.js"></script>-->
@@ -25,129 +27,192 @@
     </div>
 </div>
 <div class="container" id="container">
-    <div class="right-silder">
-        <div class="r-title">
-            <ul>
-                <li>样式</li>
-                <li>数据</li>
-            </ul>
-        </div>
-        <div class="r-container">
-            <ul>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-    </div>
     <div class="left-sidebar" id="left-silder">
         <ul class="nav">
             <li>
                 <div><span>线图（折线图及曲线图）</span><icon class="iconfont icon-youjiantou"></icon></div>
                 <ul class="nav-sidebar">
-                    <li><a href="javascript:;">基础折线图</a></li>
-                    <li><a href="javascript:;">通过 Ajax 加载数据</a></li>
-                    <li><a href="javascript:;">显示点值的折线图</a></li>
-                    <li><a href="javascript:;">可缩放的时间轴</a></li>
-                    <li><a href="javascript:;">坐标轴反转的曲线图</a></li>
-                    <li><a href="javascript:;">带标识的曲线图</a></li>
-                    <li><a href="javascript:;">带表示区域的曲线图</a></li>
-                    <li><a href="javascript:;">时间不连续的曲线图</a></li>
-                    <li><a href="javascript:;">对数折线图</a></li>
+                    <li data-index="1"><a href="javascript:;">基础折线图</a></li>
+                    <li data-index="2"><a href="javascript:;">显示点值的折线图</a></li>
+                    <!--<li data-index="3"><a href="javascript:;">可缩放的时间轴</a></li>-->
+                    <li data-index="4"><a href="javascript:;">坐标轴反转的曲线图</a></li>
+                    <li data-index="5"><a href="javascript:;">带标识的曲线图</a></li>
+                    <li data-index="6"><a href="javascript:;">带表示区域的曲线图</a></li>
+                    <li data-index="7"><a href="javascript:;">时间不连续的曲线图</a></li>
+                    <li data-index="8"><a href="javascript:;">对数折线图</a></li>
                 </ul>
             </li>
             <li>
                 <div><span>面积图</span><icon class="iconfont icon-youjiantou"></icon></div>
                 <ul class="nav-sidebar">
-                    <li><a href="javascript:;">基础面积图</a></li>
-                    <li><a href="javascript:;">包含负值的面积图</a></li>
-                    <li><a href="javascript:;">堆叠面积图</a></li>
-                    <li><a href="javascript:;">百分比堆叠面积图</a></li>
-                    <li><a href="javascript:;">断裂的面积图</a></li>
-                    <li><a href="javascript:;">坐标轴反转的面积图</a></li>
-                    <li><a href="javascript:;">曲线面积图</a></li>
-                    <li><a href="javascript:;">面积范围图</a></li>
-                    <li><a href="javascript:;">面积范围均线图</a></li>
-                    <li><a href="javascript:;">迷你图（小图）</a></li>
+                    <li data-index="9"><a href="javascript:;">基础面积图</a></li>
+                    <li data-index="10"><a href="javascript:;">包含负值的面积图</a></li>
+                    <li data-index="11"><a href="javascript:;">堆叠面积图</a></li>
+                    <li data-index="12"><a href="javascript:;">百分比堆叠面积图</a></li>
+                    <li data-index="13"><a href="javascript:;">断裂的面积图</a></li>
+                    <li data-index="14"><a href="javascript:;">坐标轴反转的面积图</a></li>
+                    <li data-index="15"><a href="javascript:;">曲线面积图</a></li>
+                    <!--<li data-index="16"><a href="javascript:;">面积范围图</a></li>-->
+                    <!--<li data-index="17"><a href="javascript:;">面积范围均线图</a></li>-->
+                    <!--<li data-index="18"><a href="javascript:;">迷你图（小图）</a></li>-->
                 </ul>
             </li>
             <li>
                 <div><span>柱形图（柱状图及条形图）</span><icon class="iconfont icon-youjiantou"></icon></div>
                 <ul class="nav-sidebar">
-                    <li><a href="javascript:;">基础条形图</a></li>
-                    <li><a href="javascript:;">堆叠条形图</a></li>
-                    <li><a href="javascript:;">包含负值的条形图</a></li>
-                    <li><a href="javascript:;">基础柱状图</a></li>
-                    <li><a href="javascript:;">包含负值的柱状图</a></li>
-                    <li><a href="javascript:;">堆叠柱状图</a></li>
-                    <li><a href="javascript:;">分组堆叠柱状图</a></li>
-                    <li><a href="javascript:;">百分比堆叠柱状图</a></li>
-                    <li><a href="javascript:;">坐标轴标签旋转的柱状图</a></li>
-                    <li><a href="javascript:;">可下钻的柱状图</a></li>
-                    <li><a href="javascript:;">嵌套的柱状图</a></li>
-                    <li><a href="javascript:;">通过HTML表格数据创建的柱状图</a></li>
-                    <li><a href="javascript:;">柱形范围图</a></li>
+                    <li data-index="19"><a href="javascript:;">基础条形图</a></li>
+                    <li data-index="20"><a href="javascript:;">堆叠条形图</a></li>
+                    <li data-index="21"><a href="javascript:;">包含负值的条形图</a></li>
+                    <li data-index="22"><a href="javascript:;">基础柱状图</a></li>
+                    <li data-index="23"><a href="javascript:;">包含负值的柱状图</a></li>
+                    <li data-index="24"><a href="javascript:;">堆叠柱状图</a></li>
+                    <li data-index="25"><a href="javascript:;">分组堆叠柱状图</a></li>
+                    <li data-index="26"><a href="javascript:;">百分比堆叠柱状图</a></li>
+                    <li data-index="27"><a href="javascript:;">坐标轴标签旋转的柱状图</a></li>
+                    <li data-index="28"><a href="javascript:;">可下钻的柱状图</a></li>
+                    <li data-index="29"><a href="javascript:;">嵌套的柱状图</a></li>
+                    <li data-index="30"><a href="javascript:;">通过HTML表格数据创建的柱状图</a></li>
+                    <li data-index="31"><a href="javascript:;">柱形范围图</a></li>
                 </ul>
             </li>
             <li>
                 <div><span>饼形图（饼图及环形图）</span><icon class="iconfont icon-youjiantou"></icon></div>
                 <ul class="nav-sidebar">
-                    <li><a href="javascript:;">基础饼图</a></li>
-                    <li><a href="javascript:;">带图例的饼图</a></li>
-                    <li><a href="javascript:;">双饼图</a></li>
-                    <li><a href="javascript:;">扇形图</a></li>
-                    <li><a href="javascript:;">可下钻的饼图</a></li>
-                    <li><a href="javascript:;">颜色渐变的饼图</a></li>
-                    <li><a href="javascript:;">单色调饼图</a></li>
-                    <li><a href="javascript:;">标题居中的环形图</a></li>
+                    <li data-index="32"><a href="javascript:;">基础饼图</a></li>
+                    <li data-index="33"><a href="javascript:;">带图例的饼图</a></li>
+                    <li data-index="34"><a href="javascript:;">双饼图</a></li>
+                    <li data-index="35"><a href="javascript:;">扇形图</a></li>
+                    <li data-index="36"><a href="javascript:;">可下钻的饼图</a></li>
+                    <li data-index="37"><a href="javascript:;">颜色渐变的饼图</a></li>
+                    <li data-index="38"><a href="javascript:;">单色调饼图</a></li>
+                    <li data-index="39"><a href="javascript:;">标题居中的环形图</a></li>
                 </ul>
             </li>
             <li>
                 <div><span>散点图及气泡图</span><icon class="iconfont icon-youjiantou"></icon></div>
                 <ul class="nav-sidebar">
-                    <li><a href="javascript:;">散点图</a></li>
-                    <li><a href="javascript:;">气泡图</a></li>
-                    <li><a href="javascript:;">3D气泡图</a></li>
-                    <li><a href="javascript:;">带辅助线的气泡图</a></li>
+                    <li data-index="40"><a href="javascript:;">散点图</a></li>
+                    <li data-index="41"><a href="javascript:;">气泡图</a></li>
+                    <li data-index="42"><a href="javascript:;">3D气泡图</a></li>
+                    <li data-index="43"><a href="javascript:;">带辅助线的气泡图</a></li>
                 </ul>
             </li>
             <li>
                 <div><span>混合图</span><icon class="iconfont icon-youjiantou"></icon></div>
                 <ul class="nav-sidebar">
-                    <li><a href="javascript:;">多个图表共用一个提示框</a></li>
-                    <li><a href="javascript:;">柱形图、饼图、折线图混合</a></li>
-                    <li><a href="javascript:;">双坐标的折线图、柱状图混合图</a></li>
-                    <li><a href="javascript:;">多坐标轴混合图</a></li>
-                    <li><a href="javascript:;">包含趋势线的散点图</a></li>
-                    <li><a href="javascript:;">天气预报</a></li>
-                    <li><a href="javascript:;">高级时间线图</a></li>
-                    <li><a href="javascript:;">直方图</a></li>
+                    <li data-index="44"><a href="javascript:;">多个图表共用一个提示框</a></li>
+                    <li data-index="45"><a href="javascript:;">柱形图、饼图、折线图混合</a></li>
+                    <li data-index="46"><a href="javascript:;">双坐标的折线图、柱状图混合图</a></li>
+                    <li data-index="47"><a href="javascript:;">多坐标轴混合图</a></li>
+                    <li data-index="48"><a href="javascript:;">包含趋势线的散点图</a></li>
                 </ul>
             </li>
             <li>
                 <div><span>3D 图</span><icon class="iconfont icon-youjiantou"></icon></div>
                 <ul class="nav-sidebar">
-                    <li><a href="javascript:;">交互性3D柱状图</a></li>
-                    <li><a href="javascript:;">包含空值的3D柱状图</a></li>
-                    <li><a href="javascript:;">堆叠3D柱状图</a></li>
-                    <li><a href="javascript:;">3D饼图</a></li>
-                    <li><a href="javascript:;">3D环形图</a></li>
-                    <li><a href="javascript:;">3D散点图</a></li>
+                    <li data-index="49"><a href="javascript:;">交互性3D柱状图</a></li>
+                    <li data-index="50"><a href="javascript:;">包含空值的3D柱状图</a></li>
+                    <li data-index="51"><a href="javascript:;">堆叠3D柱状图</a></li>
+                    <li data-index="52"><a href="javascript:;">3D饼图</a></li>
+                    <li data-index="53"><a href="javascript:;">3D环形图</a></li>
                 </ul>
             </li>
             <li>
                 <div><span>仪表图</span><icon class="iconfont icon-youjiantou"></icon></div>
                 <ul class="nav-sidebar">
-                    <li><a href="javascript:;">速度仪</a></li>
-                    <li><a href="javascript:;">仪表盘</a></li>
-                    <li><a href="javascript:;">活动图</a></li>
-                    <li><a href="javascript:;">时钟</a></li>
-                    <li><a href="javascript:;">双刻度仪表图</a></li>
-                    <li><a href="javascript:;">伏压图</a></li>
+                    <li data-index="54"><a href="javascript:;">速度仪</a></li>
+                    <li data-index="55"><a href="javascript:;">仪表盘</a></li>
+                    <li data-index="56"><a href="javascript:;">活动图</a></li>
+li                    <li data-index="57"><a href="javascript:;">时钟</a></li>
                 </ul>
             </li>
         </ul>
     </div>
-    <div class="content"></div>
+    <div class="commob-silder">
+        <div class="right-silder">
+            <div class="r-title">
+                <ul>
+                    <li class="active">样式</li>
+                    <li>数据</li>
+                </ul>
+            </div>
+            <div class="r-container" id="r-container">
+                <ul>
+                    <li style="display: block;">
+                        <div class="r-item">
+                            <span>插件标题</span>
+                            <div class="r-part">
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="r-item">
+                            <span>插件副标题</span>
+                            <div class="r-part">
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="r-item">
+                            <span>长度</span>
+                            <div class="r-part">
+                                <input type="number">
+                            </div>
+                        </div>
+                        <div class="r-item">
+                            <span>宽度</span>
+                            <div class="r-part">
+                                <input type="number">
+                            </div>
+                        </div>
+                        <div class="r-item">
+                            <span>边框颜色</span>
+                            <div class="r-part">
+                                <input type="color">
+                            </div>
+                        </div>
+                        <div class="r-item">
+                            <span>边框大小</span>
+                            <div class="r-part">
+                                <input type="number">
+                            </div>
+                        </div>
+                        <div class="r-item">
+                            <span>背景颜色</span>
+                            <div class="r-part">
+                                <input type="color">
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="r-item">
+                            <span>数据源</span>
+                            <div class="r-part">
+                                <select>
+                                    <option>数据源1</option>
+                                    <option>数据源2</option>
+                                    <option>数据源3</option>
+                                    <option>数据源4</option>
+                                    <option>数据源5</option>
+                                    <option>数据源6</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="save-btn">保存</div>
+        </div>
+        <div class="content has-margin">
+            <div class="main-content" id="main-content"></div>
+        </div>
+    </div>
+</div>
+<div id="drag-temp"></div>
+<div id="chart-temp" class="chart-temp" style="display: none;">
+    <div class="bar top-bar"></div>
+    <div class="bar right-bar"></div>
+    <div class="bar bottom-bar"></div>
+    <div class="bar left-bar"></div>
+    <div class="chart-con"></div>
 </div>
 <script type="text/javascript" src="../js/main.js"></script>
 </body>

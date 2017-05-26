@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2017-05-25
+@ date:2017-05-27
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -478,14 +478,207 @@ body {
 .container .left-sidebar .nav li:first-child div {
   border-top: none;
 }
-.container .content {
-  height: 500px;
+.container .commob-silder {
   margin-left: 300px;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .commob-silder:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .commob-silder div.has-margin {
   margin-right: 300px;
 }
-.container .right-silder {
+.container .commob-silder div.r-show {
+  margin-right: -300px;
+}
+.container .commob-silder .content {
+  position: relative;
+  margin-right: 0;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  overflow: scroll;
+}
+.container .commob-silder .content .main-content {
+  width: 1200px;
+  height: 1200px;
+  background-color: #eee;
+}
+.container .commob-silder .right-silder {
   float: right;
-  width: 300px;
-  height: 500px;
+  width: 299px;
+  border-left: 1px solid #999;
+  margin-right: 0;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.container .commob-silder .right-silder .r-title {
+  height: 39px;
+  border-bottom: 1px solid #ccc;
+}
+.container .commob-silder .right-silder .r-title ul {
+  position: relative;
+  background-color: #565669;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .commob-silder .right-silder .r-title ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .commob-silder .right-silder .r-title ul li:first-child {
+  border-right: 1px solid #ccc;
+}
+.container .commob-silder .right-silder .r-title ul li {
+  float: left;
+  width: 149px;
+  height: 39px;
+  line-height: 39px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+}
+.container .commob-silder .right-silder .r-title ul li.active {
+  background-color: #eee;
+  color: #333;
+}
+.container .commob-silder .right-silder .r-title ul li:hover {
+  color: #90ef7f;
+}
+.container .commob-silder .right-silder .r-container {
+  width: 299px;
+  position: relative;
   overflow-y: scroll;
+}
+.container .commob-silder .right-silder .r-container ul {
+  padding: 10px;
+}
+.container .commob-silder .right-silder .r-container ul li {
+  position: relative;
+  display: none;
+}
+.container .commob-silder .right-silder .r-container ul li .r-item {
+  margin-bottom: 15px;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .commob-silder .right-silder .r-container ul li .r-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .commob-silder .right-silder .r-container ul li .r-item span {
+  float: left;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+}
+.container .commob-silder .right-silder .r-container ul li .r-item .r-part {
+  float: left;
+  height: 20px;
+  padding: 5px 0;
+}
+.container .commob-silder .right-silder .r-container ul li .r-item .r-part input {
+  height: 20px;
+}
+.container .commob-silder .right-silder .r-container ul li .r-item .r-part select {
+  height: 20px;
+}
+.container .commob-silder .right-silder .save-btn {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #7c82ff;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.container .commob-silder .right-silder .save-btn:hover {
+  background-color: #90ef7f;
+  color: #333;
+}
+#drag-temp {
+  display: none;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 2px dashed #f95656;
+  z-index: 99999999;
+}
+#chart-temp,
+.chart-temp {
+  width: 600px;
+  height: 400px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#chart-temp .bar,
+.chart-temp .bar {
+  position: absolute;
+}
+#chart-temp .top-bar,
+.chart-temp .top-bar {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #ccc;
+  cursor: n-resize;
+}
+#chart-temp .right-bar,
+.chart-temp .right-bar {
+  right: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background-color: #ccc;
+  cursor: e-resize;
+}
+#chart-temp .bottom-bar,
+.chart-temp .bottom-bar {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #ccc;
+  cursor: s-resize;
+}
+#chart-temp .left-bar,
+.chart-temp .left-bar {
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background-color: #ccc;
+  cursor: w-resize;
+}
+#chart-temp .chart-con,
+.chart-temp .chart-con {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 590px;
+  height: 390px;
 }
