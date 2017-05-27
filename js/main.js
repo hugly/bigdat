@@ -68,8 +68,8 @@
                         if(resX < oMainX){ temX = 0; }
                         if(resY < oMainY){ temY = 0; }
 
-                        if(resX > (oMainX + oMainContent.width()-200)){ temX = oMainContent.width()-200 }
-                        if(resY > (oMainY + oMainContent.height()-200)){ temY = oMainContent.height()-200 }
+                        if(resX > (oMainX + oMainContent.width()-oChartTem.width())){ temX = oMainContent.width()-oChartTem.width() }
+                        if(resY > (oMainY + oMainContent.height()-oChartTem.width())){ temY = oMainContent.height()-oChartTem.width() }
 
                         // if(resX < oMainX){ return; }
                         // if(resY < oMainY){ return; }
