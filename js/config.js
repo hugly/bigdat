@@ -850,35 +850,35 @@ var  chartConfig = {
             data: [1, 3, 4, 3, 3, 5, 4]
         }]
     },
-    // 16:{
-    //     chart: {
-    //         type: 'arearange',
-    //         zoomType: 'x'
-    //     },
-    //     title: {
-    //         text: '某地白天温度变化'
-    //     },
-    //     xAxis: {
-    //         type: 'datetime'
-    //     },
-    //     yAxis: {
-    //         title: {
-    //             text: null
-    //         }
-    //     },
-    //     tooltip: {
-    //         crosshairs: true,
-    //         shared: true,
-    //         valueSuffix: '°C'
-    //     },
-    //     legend: {
-    //         enabled: false
-    //     },
-    //     series: [{
-    //         name: '气温',
-    //         data: [[1388538000000, 1.1, 4.7]]
-    //     }]
-    // },
+    16:{
+        chart: {
+            type: 'arearange',
+            zoomType: 'x'
+        },
+        title: {
+            text: '某地白天温度变化'
+        },
+        xAxis: {
+            type: 'datetime'
+        },
+        yAxis: {
+            title: {
+                text: null
+            }
+        },
+        tooltip: {
+            crosshairs: true,
+            shared: true,
+            valueSuffix: '°C'
+        },
+        legend: {
+            enabled: false
+        },
+        series: [{
+            name: '气温',
+            data: [[1388538000000, 1.1, 4.7]]
+        }]
+    },
     17:{
         title: {
             text: '某地7月份气温范围及平均值'
@@ -926,27 +926,1186 @@ var  chartConfig = {
         }]
     },
     // 18:{},
-    19:{},
-    20:{},
-    21:{},
-    22:{},
-    23:{},
-    24:{},
-    25:{},
-    26:{},
-    27:{},
-    28:{},
-    29:{},
-    30:{},
-    31:{},
-    32:{},
-    33:{},
-    34:{},
-    35:{},
-    36:{},
-    37:{},
-    38:{},
-    39:{},
+    19:{
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: '各洲不同时间的人口条形图'
+        },
+        subtitle: {
+            text: '数据来源: Wikipedia.org'
+        },
+        xAxis: {
+            categories: ['非洲', '美洲', '亚洲', '欧洲', '大洋洲'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '人口总量 (百万)',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' 百万'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true,
+                    allowOverlap: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: '#FFFFFF',
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: '1800 年',
+            data: [107, 31, 635, 203, 2]
+        }, {
+            name: '1900 年',
+            data: [133, 156, 947, 408, 6]
+        }, {
+            name: '2008 年',
+            data: [973, 914, 4054, 732, 34]
+        }]
+    },
+    20:{
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: '堆叠条形图'
+        },
+        xAxis: {
+            categories: ['苹果', '橘子', '梨', '葡萄', '香蕉']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '水果消费总量'
+            }
+        },
+        legend: {
+            reversed: true
+        },
+        plotOptions: {
+            series: {
+                stacking: 'normal'
+            }
+        },
+        series: [{
+            name: '小张',
+            data: [5, 3, 4, 7, 2]
+        }, {
+            name: '小彭',
+            data: [2, 2, 3, 2, 1]
+        }, {
+            name: '小潘',
+            data: [3, 4, 4, 2, 5]
+        }]
+    },
+    21:{
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: '2015 年德国人口金字塔'
+        },
+        subtitle: {
+            useHTML: true,
+            text: '数据来源: <a href="http://populationpyramid.net/germany/2015/">1950 ~ 2100 年世界人口金字塔</a>'
+        },
+        xAxis: [{
+            categories: ['0-4', '5-9', '10-14', '15-19',
+                '20-24', '25-29', '30-34', '35-39', '40-44',
+                '45-49', '50-54', '55-59', '60-64', '65-69',
+                '70-74', '75-79', '80-84', '85-89', '90-94',
+                '95-99', '100 + '],
+            reversed: false,
+            labels: {
+                step: 1
+            }
+        }, { // mirror axis on right side
+            opposite: true,
+            reversed: false,
+            categories: ['0-4', '5-9', '10-14', '15-19',
+                '20-24', '25-29', '30-34', '35-39', '40-44',
+                '45-49', '50-54', '55-59', '60-64', '65-69',
+                '70-74', '75-79', '80-84', '85-89', '90-94',
+                '95-99', '100 + '],
+            linkedTo: 0,
+            labels: {
+                step: 1
+            }
+        }],
+        yAxis: {
+            title: {
+                text: null
+            },
+            labels: {
+                formatter: function () {
+                    return (Math.abs(this.value) / 1000000) + 'M';
+                }
+            },
+            min: -4000000,
+            max: 4000000
+        },
+        plotOptions: {
+            series: {
+                stacking: 'normal'
+            }
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
+                    '人口: ' + Math.abs(this.point.y);
+            }
+        },
+        series: [{
+            name: '男',
+            data: [-1746181, -1884428, -2089758, -2222362, -2537431, -2507081, -2443179,
+                -2664537, -3556505, -3680231, -3143062, -2721122, -2229181, -2227768,
+                -2176300, -1329968, -836804, -354784, -90569, -28367, -3878]
+        }, {
+            name: '女',
+            data: [1656154, 1787564, 1981671, 2108575, 2403438, 2366003, 2301402, 2519874,
+                3360596, 3493473, 3050775, 2759560, 2304444, 2426504, 2568938, 1785638,
+                1447162, 1005011, 330870, 130632, 21208]
+        }]
+    },
+    22:{
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '月平均降雨量'
+        },
+        subtitle: {
+            text: '数据来源: WorldClimate.com'
+        },
+        xAxis: {
+            categories: [
+                '一月',
+                '二月',
+                '三月',
+                '四月',
+                '五月',
+                '六月',
+                '七月',
+                '八月',
+                '九月',
+                '十月',
+                '十一月',
+                '十二月'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '降雨量 (mm)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '东京',
+            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        }, {
+            name: '纽约',
+            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+        }, {
+            name: '伦敦',
+            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+        }, {
+            name: '柏林',
+            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+        }]
+    },
+    23:{
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '包含负值的柱形图'
+        },
+        xAxis: {
+            categories: ['苹果', '橘子', '梨', '葡萄', '香蕉']
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: '小张',
+            data: [5, 3, 4, 7, 2]
+        }, {
+            name: '小彭',
+            data: [2, -2, -3, 2, 1]
+        }, {
+            name: '小潘',
+            data: [3, 4, 4, -2, 5]
+        }]
+    },
+    24:{
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '堆叠柱形图'
+        },
+        xAxis: {
+            categories: ['苹果', '橘子', '梨', '葡萄', '香蕉']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '水果消费总量'
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    color: 'gray'
+                }
+            }
+        },
+        legend: {
+            align: 'right',
+            x: -30,
+            verticalAlign: 'top',
+            y: 25,
+            floating: true,
+            backgroundColor: 'white',
+            borderColor: '#CCC',
+            borderWidth: 1,
+            shadow: false
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.x + '</b><br/>' +
+                    this.series.name + ': ' + this.y + '<br/>' +
+                    '总量: ' + this.point.stackTotal;
+            }
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true,
+                    color: 'white',
+                    style: {
+                        textShadow: '0 0 3px black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: '小张',
+            data: [5, 3, 4, 7, 2]
+        }, {
+            name: '小彭',
+            data: [2, 2, 3, 2, 1]
+        }, {
+            name: '小潘',
+            data: [3, 4, 4, 2, 5]
+        }]
+    },
+    25:{
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '按性别划分的水果消费总量'
+        },
+        xAxis: {
+            categories: ['苹果', '橘子', '梨', '葡萄', '香蕉']
+        },
+        yAxis: {
+            allowDecimals: false,
+            min: 0,
+            title: {
+                text: '水果数量'
+            }
+        },
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.x + '</b><br/>' +
+                    this.series.name + ': ' + this.y + '<br/>' +
+                    '总量: ' + this.point.stackTotal;
+            }
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal'
+            }
+        },
+        series: [{
+            name: '小张',
+            data: [5, 3, 4, 7, 2],
+            stack: 'male'
+        }, {
+            name: '小潘',
+            data: [3, 4, 4, 2, 5],
+            stack: 'male'
+        }, {
+            name: '小彭',
+            data: [2, 5, 6, 2, 1],
+            stack: 'female'
+        }, {
+            name: '小王',
+            data: [3, 0, 4, 4, 3],
+            stack: 'female'
+        }]
+    },
+    26:{
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '百分比堆叠柱形图'
+        },
+        xAxis: {
+            categories: ['苹果', '橘子', '梨', '葡萄', '香蕉']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '水果消费总量'
+            }
+        },
+        tooltip: {
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                stacking: 'percent'
+            }
+        },
+        series: [{
+            name: '小张',
+            data: [5, 3, 4, 7, 2]
+        }, {
+            name: '小彭',
+            data: [2, 2, 3, 2, 1]
+        }, {
+            name: '小潘',
+            data: [3, 4, 4, 2, 5]
+        }]
+    },
+    27:{
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '全球各大城市人口排行'
+        },
+        subtitle: {
+            text: '数据截止 2017-03，来源: <a href="https://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '人口 (百万)'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: '人口总量: <b>{point.y:.1f} 百万</b>'
+        },
+        series: [{
+            name: '总人口',
+            data: [
+                ['上海', 24.25],
+                ['卡拉奇', 23.50],
+                ['北京', 21.51],
+                ['德里', 16.78],
+                ['拉各斯', 16.06],
+                ['天津', 15.20],
+                ['伊斯坦布尔', 14.16],
+                ['东京', 13.51],
+                ['广州', 13.08],
+                ['孟买', 12.44],
+                ['莫斯科', 12.19],
+                ['圣保罗', 12.03],
+                ['深圳', 10.46],
+                ['雅加达', 10.07],
+                ['拉合尔', 10.05],
+                ['首尔', 9.99],
+                ['武汉', 9.78],
+                ['金沙萨', 9.73],
+                ['开罗', 9.27],
+                ['墨西哥', 8.87]
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y:.1f}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    },
+    28:{
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '2015年1月-5月，各浏览器的市场份额'
+        },
+        subtitle: {
+            text: '点击可查看具体的版本数据，数据来源: <a href="https://netmarketshare.com">netmarketshare.com</a>.'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: '总的市场份额'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.1f}%'
+                }
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+        },
+        series: [{
+            name: '浏览器品牌',
+            colorByPoint: true,
+            data: [{
+                name: 'Microsoft Internet Explorer',
+                y: 56.33,
+                drilldown: 'Microsoft Internet Explorer'
+            }, {
+                name: 'Chrome',
+                y: 24.03,
+                drilldown: 'Chrome'
+            }, {
+                name: 'Firefox',
+                y: 10.38,
+                drilldown: 'Firefox'
+            }, {
+                name: 'Safari',
+                y: 4.77,
+                drilldown: 'Safari'
+            }, {
+                name: 'Opera',
+                y: 0.91,
+                drilldown: 'Opera'
+            }, {
+                name: 'Proprietary or Undetectable',
+                y: 0.2,
+                drilldown: null
+            }]
+        }],
+        drilldown: {
+            series: [{
+                name: 'Microsoft Internet Explorer',
+                id: 'Microsoft Internet Explorer',
+                data: [
+                    [
+                        'v11.0',
+                        24.13
+                    ],
+                    [
+                        'v8.0',
+                        17.2
+                    ],
+                    [
+                        'v9.0',
+                        8.11
+                    ],
+                    [
+                        'v10.0',
+                        5.33
+                    ],
+                    [
+                        'v6.0',
+                        1.06
+                    ],
+                    [
+                        'v7.0',
+                        0.5
+                    ]
+                ]
+            }, {
+                name: 'Chrome',
+                id: 'Chrome',
+                data: [
+                    [
+                        'v40.0',
+                        5
+                    ],
+                    [
+                        'v41.0',
+                        4.32
+                    ],
+                    [
+                        'v42.0',
+                        3.68
+                    ],
+                    [
+                        'v39.0',
+                        2.96
+                    ],
+                    [
+                        'v36.0',
+                        2.53
+                    ],
+                    [
+                        'v43.0',
+                        1.45
+                    ],
+                    [
+                        'v31.0',
+                        1.24
+                    ],
+                    [
+                        'v35.0',
+                        0.85
+                    ],
+                    [
+                        'v38.0',
+                        0.6
+                    ],
+                    [
+                        'v32.0',
+                        0.55
+                    ],
+                    [
+                        'v37.0',
+                        0.38
+                    ],
+                    [
+                        'v33.0',
+                        0.19
+                    ],
+                    [
+                        'v34.0',
+                        0.14
+                    ],
+                    [
+                        'v30.0',
+                        0.14
+                    ]
+                ]
+            }, {
+                name: 'Firefox',
+                id: 'Firefox',
+                data: [
+                    [
+                        'v35',
+                        2.76
+                    ],
+                    [
+                        'v36',
+                        2.32
+                    ],
+                    [
+                        'v37',
+                        2.31
+                    ],
+                    [
+                        'v34',
+                        1.27
+                    ],
+                    [
+                        'v38',
+                        1.02
+                    ],
+                    [
+                        'v31',
+                        0.33
+                    ],
+                    [
+                        'v33',
+                        0.22
+                    ],
+                    [
+                        'v32',
+                        0.15
+                    ]
+                ]
+            }, {
+                name: 'Safari',
+                id: 'Safari',
+                data: [
+                    [
+                        'v8.0',
+                        2.56
+                    ],
+                    [
+                        'v7.1',
+                        0.77
+                    ],
+                    [
+                        'v5.1',
+                        0.42
+                    ],
+                    [
+                        'v5.0',
+                        0.3
+                    ],
+                    [
+                        'v6.1',
+                        0.29
+                    ],
+                    [
+                        'v7.0',
+                        0.26
+                    ],
+                    [
+                        'v6.2',
+                        0.17
+                    ]
+                ]
+            }, {
+                name: 'Opera',
+                id: 'Opera',
+                data: [
+                    [
+                        'v12.x',
+                        0.34
+                    ],
+                    [
+                        'v28',
+                        0.24
+                    ],
+                    [
+                        'v27',
+                        0.17
+                    ],
+                    [
+                        'v29',
+                        0.16
+                    ]
+                ]
+            }]
+        }
+    },
+    29:{
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '分公司效率优化嵌套图'
+        },
+        xAxis: {
+            categories: [
+                '杭州总部',
+                '上海分部',
+                '北京分部'
+            ]
+        },
+        yAxis: [{
+            min: 0,
+            title: {
+                text: '雇员'
+            }
+        }, {
+            title: {
+                text: '利润 (millions)'
+            },
+            opposite: true
+        }],
+        legend: {
+            shadow: false
+        },
+        tooltip: {
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '雇员',
+            color: 'rgba(165,170,217,1)',
+            data: [150, 73, 20],
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+        }, {
+            name: '优化的员工',
+            color: 'rgba(126,86,134,.9)',
+            data: [140, 90, 40],
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+        }, {
+            name: '利润',
+            color: 'rgba(248,161,63,1)',
+            data: [183.6, 178.8, 198.5],
+            tooltip: {
+                valuePrefix: '$',
+                valueSuffix: ' M'
+            },
+            pointPadding: 0.3,
+            pointPlacement: 0.2,
+            yAxis: 1
+        }, {
+            name: '优化的利润',
+            color: 'rgba(186,60,61,.9)',
+            data: [203.6, 198.8, 208.5],
+            tooltip: {
+                valuePrefix: '$',
+                valueSuffix: ' M'
+            },
+            pointPadding: 0.4,
+            pointPlacement: 0.2,
+            yAxis: 1
+        }]
+    },
+    // 30:{},
+    // 31:{},
+    32:{
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '2014 某网站各浏览器浏览量占比'
+        },
+        tooltip: {
+            headerFormat: '{series.name}<br>',
+            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '浏览器访问量占比',
+            data: [
+                ['Firefox',   45.0],
+                ['IE',       26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                ['其他',   0.7]
+            ]
+        }]
+    },
+    33:{
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '2014 某网站上各个浏览器的访问量占比'
+        },
+        tooltip: {
+            headerFormat: '{series.name}<br>',
+            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '浏览器访问量占比',
+            data: [
+                ['Firefox',   45.0],
+                ['IE',       26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                ['其他',   0.7]
+            ]
+        }]
+    },
+    34:{
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: '2011年4月浏览器市场份额'
+        },
+        subtitle: {
+            text: '内环为浏览器品牌占比，外环为具体的版本'
+        },
+        yAxis: {
+            title: {
+                text: '总百分比市场份额'
+            }
+        },
+        plotOptions: {
+            pie: {
+                shadow: false,
+                center: ['50%', '50%']
+            }
+        },
+        tooltip: {
+            valueSuffix: '%'
+        },
+        series: [{
+            name: '浏览器',
+            data: [
+                {color:"#7cb5ec",name:"IE",y:55.11},
+                {color:"#434348",name:"Firefox",y:21.63},
+                {color:"#90ed7d",name:"Chrome",y:11.94},
+                {color:"#f7a35c",name:"Safari",y:7.15},
+                {color:"#8085e9",name:"Opera",y: 2.14}
+            ],
+            size: '60%',
+            dataLabels: {
+                formatter: function () {
+                    return this.y > 5 ? this.point.name : null;
+                },
+                color: 'white',
+                distance: -30
+            }
+        }, {
+            name: '版本',
+            data: [
+                {color:"rgb(175,232,255)",name:"IE 6.0",y:10.85}
+            ],
+            size: '80%',
+            innerSize: '60%',
+            dataLabels: {
+                formatter: function () {
+                    // 大于1则显示
+                    return this.y > 1 ? '<b>' + this.point.name + ':</b> ' + this.y + '%'  : null;
+                }
+            }
+        }]
+    },
+    35:{
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: '浏览器<br>占比',
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 50
+        },
+        tooltip: {
+            headerFormat: '{series.name}<br>',
+            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white',
+                        textShadow: '0px 1px 2px black'
+                    }
+                },
+                startAngle: -90,
+                endAngle: 90,
+                center: ['50%', '75%']
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '浏览器占比',
+            innerSize: '50%',
+            data: [
+                ['Firefox',   45.0],
+                ['IE',       26.8],
+                ['Chrome', 12.8],
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                {
+                    name: '其他',
+                    y: 0.7,
+                    dataLabels: {
+                        // 数据比较少，没有空间显示数据标签，所以将其关闭
+                        enabled: false
+                    }
+                }
+            ]
+        }]
+    },
+    36:{
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: '2013年11月浏览器市场份额'
+        },
+        subtitle: {
+            text: '单击每个浏览器品牌不同版本的具体信息，数据来源: netmarketshare.com.'
+        },
+        plotOptions: {
+            series: {
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}: {point.y:.1f}%'
+                }
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+        },
+        series: [{
+            name: '品牌',
+            colorByPoint: true,
+            data: [
+                {drilldown:"Microsoft Internet Explorer ",name:"Microsoft Internet Explorer ",y:53.61},
+                {drilldown:"Microsoft Internet Explorer ",name:"Microsoft Internet Explorer ",y:53.61},
+                {drilldown:"Microsoft Internet Explorer ",name:"Microsoft Internet Explorer ",y:53.61},
+                {drilldown:"Microsoft Internet Explorer ",name:"Microsoft Internet Explorer ",y:53.61},
+                {drilldown:"Microsoft Internet Explorer ",name:"Microsoft Internet Explorer ",y:53.61},
+                {drilldown:"Microsoft Internet Explorer ",name:"Microsoft Internet Explorer ",y:53.61}
+            ]
+        }],
+        drilldown: {
+            series: [
+                {
+                    name:'Microsoft Internet Explorer',
+                    id:'Microsoft Internet Explorer',
+                    data:[1,26.61]
+                }
+            ]
+        }
+    },
+    37:{
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '2014年某网站各浏览器的访问量占比'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: 'black'
+                    },
+                    connectorColor: 'silver'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '浏览器占比',
+            data: [
+                ['Firefox',   45.0],
+                ['IE',       26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                ['其他',   0.7]
+            ]
+        }]
+    },
+    38:{
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '2014 年某网站各浏览器访问量占比'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color:'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '浏览器占比',
+            data: [
+                ['Firefox',   45.0],
+                ['IE',       26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                ['其他',   0.7]
+            ]
+        }]
+    },
+    39:{
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            spacing : [100, 0 , 40, 0]
+        },
+        title: {
+            floating:true,
+            text: '圆心显示的标题'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: 'black'
+                    }
+                },
+                point: {
+                    events: {
+                        mouseOver: function(e) {  // 鼠标滑过时动态更新标题
+                            // 标题更新函数，API 地址：https://api.hcharts.cn/highcharts#Chart.setTitle
+                            chart.setTitle({
+                                text: e.target.name+ '\t'+ e.target.y + ' %'
+                            });
+                        }
+                        //,
+                        // click: function(e) { // 同样的可以在点击事件里处理
+                        //     chart.setTitle({
+                        //         text: e.point.name+ '\t'+ e.point.y + ' %'
+                        //     });
+                        // }
+                    }
+                },
+            }
+        },
+        series: [{
+            type: 'pie',
+            innerSize: '80%',
+            name: '市场份额',
+            data: [
+                {name:'Firefox',   y: 45.0, url : 'http://bbs.hcharts.cn'},
+                ['IE',       26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true,
+                    url: 'http://www.hcharts.cn'
+                },
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                ['其他',   0.7]
+            ]
+        }]
+    },
     40:{},
     41:{},
     43:{},
@@ -963,5 +2122,5 @@ var  chartConfig = {
     54:{},
     55:{},
     56:{},
-    57:{},
+    57:{}
 };

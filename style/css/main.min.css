@@ -333,6 +333,123 @@ body {
   color: #fff;
   font-weight: normal;
 }
+.naver .left-sidebar {
+  float: left;
+  width: 60%;
+  position: relative;
+}
+.naver .left-sidebar .nav {
+  margin-bottom: 0;
+  padding-left: 0;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.naver .left-sidebar .nav:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.naver .left-sidebar .nav li {
+  float: left;
+  width: 12.5%;
+  position: relative;
+  cursor: pointer;
+}
+.naver .left-sidebar .nav li div {
+  width: 95%;
+  margin-right: 5%;
+  height: 60px;
+  cursor: pointer;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.naver .left-sidebar .nav li div:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.naver .left-sidebar .nav li div icon {
+  float: left;
+  width: 100%;
+  height: 30px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+}
+.naver .left-sidebar .nav li div span {
+  float: left;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.naver .left-sidebar .nav li .nav-sidebar {
+  display: none;
+  position: absolute;
+  width: 400px;
+  padding: 10px 0 10px 10px;
+  left: 0;
+  top: 60px;
+  background-color: #565669;
+  min-height: 1px;
+  zoom: 1;
+  z-index: 99;
+}
+.naver .left-sidebar .nav li .nav-sidebar:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.naver .left-sidebar .nav li .nav-sidebar li {
+  float: left;
+  width: 90px;
+  margin: 0 10px 10px 0;
+}
+.naver .left-sidebar .nav li .nav-sidebar li em {
+  display: inline-block;
+  width: 90px;
+  height: 60px;
+  background-size: contain;
+}
+.naver .left-sidebar .nav li .nav-sidebar li a {
+  display: inline-block;
+  width: 90px;
+  height: 20px;
+  line-height: 20px;
+  color: #cad5e7;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.naver .left-sidebar .nav li .nav-sidebar li:hover a {
+  color: #90ef7f;
+}
+.naver .left-sidebar .nav li:hover div {
+  background-color: #565669;
+}
+.naver .left-sidebar .nav li:hover .nav-sidebar {
+  display: block;
+}
 .naver .oper {
   float: right;
   width: 24%;
@@ -404,100 +521,13 @@ body {
   clear: both;
   visibility: hidden;
 }
-.container .left-sidebar {
-  float: left;
-  width: 300px;
-  background-color: #3a3a4f;
-  overflow-y: scroll;
+.container div.r-show {
+  margin-right: 0;
 }
-.container .left-sidebar .nav {
-  margin-bottom: 0;
-  padding-left: 0;
-}
-.container .left-sidebar .nav li {
-  position: relative;
-  display: block;
-  cursor: pointer;
-}
-.container .left-sidebar .nav li div {
-  padding: 10px;
-  line-height: 20px;
-  display: block;
-  background-color: #3a3a4f;
-  border-top: 1px solid #34343e;
-  color: #a9a5bf;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
-  position: relative;
-}
-.container .left-sidebar .nav li div icon {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  will-change: all;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-.container .left-sidebar .nav li div icon.trans {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-.container .left-sidebar .nav li div:hover {
-  color: #d2cdea;
-}
-.container .left-sidebar .nav li div:hover span {
-  color: #d2cdea;
-}
-.container .left-sidebar .nav li div:hover icon {
-  color: #d2cdea;
-}
-.container .left-sidebar .nav li .nav-sidebar {
-  display: none;
-}
-.container .left-sidebar .nav li .nav-sidebar li a {
-  padding: 8px 20px;
-  line-height: 20px;
-  display: inline-block;
-  width: 100%;
-  color: #cad5e7;
-  font-size: 12px;
-  position: relative;
-  box-sizing: border-box;
-}
-.container .left-sidebar .nav li .nav-sidebar li:hover {
-  background-color: #48485b;
-}
-.container .left-sidebar .nav li .nav-sidebar li:hover a {
-  color: #90ef7f;
-}
-.container .left-sidebar .nav li:first-child div {
-  border-top: none;
-}
-.container .commob-silder {
-  margin-left: 300px;
-  position: relative;
-  min-height: 1px;
-  zoom: 1;
-}
-.container .commob-silder:after {
-  content: "020";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-.container .commob-silder div.has-margin {
+.container div.has-margin {
   margin-right: 300px;
 }
-.container .commob-silder div.r-show {
-  margin-right: -300px;
-}
-.container .commob-silder .content {
+.container .content {
   position: relative;
   margin-right: 0;
   will-change: all;
@@ -507,43 +537,43 @@ body {
   transition: all 0.2s ease-in-out;
   overflow: scroll;
 }
-.container .commob-silder .content .main-content {
+.container .content .main-content {
   width: 1200px;
   height: 1200px;
   background-color: #eee;
 }
-.container .commob-silder .right-silder {
+.container .right-silder {
   float: right;
   width: 299px;
   border-left: 1px solid #999;
-  margin-right: 0;
+  margin-right: -300px;
   will-change: all;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
-.container .commob-silder .right-silder .r-title {
+.container .right-silder .r-title {
   height: 39px;
   border-bottom: 1px solid #ccc;
 }
-.container .commob-silder .right-silder .r-title ul {
+.container .right-silder .r-title ul {
   position: relative;
   background-color: #565669;
   min-height: 1px;
   zoom: 1;
 }
-.container .commob-silder .right-silder .r-title ul:after {
+.container .right-silder .r-title ul:after {
   content: "020";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.container .commob-silder .right-silder .r-title ul li:first-child {
+.container .right-silder .r-title ul li:first-child {
   border-right: 1px solid #ccc;
 }
-.container .commob-silder .right-silder .r-title ul li {
+.container .right-silder .r-title ul li {
   float: left;
   width: 149px;
   height: 39px;
@@ -553,56 +583,64 @@ body {
   cursor: pointer;
   color: #fff;
 }
-.container .commob-silder .right-silder .r-title ul li.active {
+.container .right-silder .r-title ul li.active {
   background-color: #eee;
   color: #333;
 }
-.container .commob-silder .right-silder .r-title ul li:hover {
+.container .right-silder .r-title ul li:hover {
   color: #90ef7f;
 }
-.container .commob-silder .right-silder .r-container {
+.container .right-silder .r-container {
   width: 299px;
   position: relative;
   overflow-y: scroll;
 }
-.container .commob-silder .right-silder .r-container ul {
+.container .right-silder .r-container ul {
   padding: 10px;
 }
-.container .commob-silder .right-silder .r-container ul li {
+.container .right-silder .r-container ul li {
   position: relative;
   display: none;
 }
-.container .commob-silder .right-silder .r-container ul li .r-item {
+.container .right-silder .r-container ul li .r-item {
   margin-bottom: 15px;
   position: relative;
   min-height: 1px;
   zoom: 1;
 }
-.container .commob-silder .right-silder .r-container ul li .r-item:after {
+.container .right-silder .r-container ul li .r-item:after {
   content: "020";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.container .commob-silder .right-silder .r-container ul li .r-item span {
+.container .right-silder .r-container ul li .r-item span {
   float: left;
   width: 80px;
   height: 30px;
   line-height: 30px;
 }
-.container .commob-silder .right-silder .r-container ul li .r-item .r-part {
-  float: left;
-  height: 20px;
+.container .right-silder .r-container ul li .r-item .r-part {
+  margin-left: 80px;
   padding: 5px 0;
 }
-.container .commob-silder .right-silder .r-container ul li .r-item .r-part input {
+.container .right-silder .r-container ul li .r-item .r-part input {
   height: 20px;
 }
-.container .commob-silder .right-silder .r-container ul li .r-item .r-part select {
+.container .right-silder .r-container ul li .r-item .r-part select {
   height: 20px;
 }
-.container .commob-silder .right-silder .save-btn {
+.container .right-silder .r-container ul li .r-item .r-part textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 200px;
+}
+.container .right-silder .r-container ul li .r-item div.spec {
+  margin-left: 0;
+}
+.container .right-silder .save-btn {
   width: 100%;
   height: 40px;
   line-height: 40px;
@@ -612,7 +650,7 @@ body {
   font-size: 14px;
   cursor: pointer;
 }
-.container .commob-silder .right-silder .save-btn:hover {
+.container .right-silder .save-btn:hover {
   background-color: #90ef7f;
   color: #333;
 }
@@ -633,6 +671,38 @@ body {
   position: absolute;
   left: 0;
   top: 0;
+}
+#chart-temp .edit-btn,
+.chart-temp .edit-btn {
+  position: absolute;
+  right: 35px;
+  top: -35px;
+  cursor: pointer;
+}
+#chart-temp .edit-btn i,
+.chart-temp .edit-btn i {
+  font-size: 31px;
+  color: #565669;
+}
+#chart-temp .edit-btn:hover i,
+.chart-temp .edit-btn:hover i {
+  color: #20b0c2;
+}
+#chart-temp .dele-btn,
+.chart-temp .dele-btn {
+  position: absolute;
+  right: 0;
+  top: -31px;
+  cursor: pointer;
+}
+#chart-temp .dele-btn i,
+.chart-temp .dele-btn i {
+  font-size: 29px;
+  color: #565669;
+}
+#chart-temp .dele-btn:hover i,
+.chart-temp .dele-btn:hover i {
+  color: #bd2c00;
 }
 #chart-temp .bar,
 .chart-temp .bar {
@@ -681,4 +751,5 @@ body {
   top: 5px;
   width: 590px;
   height: 390px;
+  cursor: move;
 }

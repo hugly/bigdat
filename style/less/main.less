@@ -11,6 +11,30 @@ html,body{ height: 100%; overflow: hidden; }
     span{ color: #90ef7f; }
   }
   h3{ float: left; width: 60%; height: 60px; line-height: 60px; text-align: center; color: #fff; font-weight: normal; }
+  .left-sidebar{ float: left; width: 60%; position: relative;
+      .nav{ margin-bottom: 0; padding-left: 0; position: relative; .cf();
+        li{ float: left; width: 12.5%; position: relative; cursor: pointer;
+          div{ width: 95%; margin-right: 5%; height: 60px;  cursor: pointer; position: relative; .cf();
+            icon{ float: left; width: 100%; height: 30px; line-height: 40px; text-align: center; font-size: 20px; color: #fff; }
+            span{ float: left; width: 100%; height: 30px; line-height: 30px;  text-align: center; color: #fff; text-transform: uppercase; .omit(); }
+          }
+
+          .nav-sidebar{ display: none; position: absolute; width: 400px; padding: 10px 0 10px 10px; left: 0; top: 60px; background-color: #565669; .cf(); z-index: 99;
+            li{ float: left; width: 90px; margin: 0 10px 10px 0;
+              em{ display: inline-block; width: 90px; height: 60px; background-size: contain; }
+              a{ display: inline-block; width: 90px; height: 20px; line-height: 20px; color: #cad5e7; font-size: 12px; text-align: center; .omit(); }
+            }
+            li:hover{
+              a{ color: #90ef7f; }
+             }
+          }
+        }
+        li:hover{
+          div{ background-color: #565669;}
+          .nav-sidebar{ display: block; }
+        }
+      }
+  }
   .oper{ float: right; width: 24%; height: 60px; text-align: right;
     ul{ margin-right: 20px; display: inline-block; position: relative; .cf();
       li{ float: left; margin: 0 10px;
@@ -27,72 +51,60 @@ html,body{ height: 100%; overflow: hidden; }
   }
 }
 .container{ width: 100%; position: relative; .cf();
-  .left-sidebar{ float: left; width: 300px; background-color: #3a3a4f; overflow-y: scroll;
-    .nav{ margin-bottom: 0; padding-left: 0;
-      li{ position: relative; display: block; cursor: pointer;
-        div{ padding: 10px; line-height: 20px; display: block; background-color: #3a3a4f; border-top: 1px solid #34343e; color: #a9a5bf; font-weight: 700; text-transform: uppercase; cursor: pointer; position: relative;
-          span{}
-          icon{ position: absolute; right: 10px; top: 10px; .trs(); }
-          icon.trans{ .transform(rotate(90deg)); }
-        }
-        div:hover{ color: #d2cdea;
-          span{ color: #d2cdea; }
-          icon{ color: #d2cdea; }
-        }
-        .nav-sidebar{ display: none;
-          li{
-            a{ padding: 8px 20px; line-height: 20px; display: inline-block; width: 100%; color: #cad5e7; font-size: 12px; position: relative; box-sizing: border-box; }
-          }
-          li:hover{ background-color: #48485b;
-            a{ color: #90ef7f; }
-           }
-        }
-      }
-      li:first-child div{ border-top: none; }
-    }
+  div.r-show{ margin-right: 0;}
+  div.has-margin{ margin-right: 300px; }
+  .content{ position: relative; margin-right: 0; .trs(); overflow: scroll;
+    .main-content{ width: 1200px; height: 1200px; background-color: #eee; }
   }
-  .commob-silder{ margin-left: 300px; position: relative; .cf();
-    div.has-margin{ margin-right: 300px; }
-    div.r-show{ margin-right: -300px;}
-    .content{ position: relative; margin-right: 0; .trs(); overflow: scroll;
-      .main-content{ width: 1200px; height: 1200px; background-color: #eee; }
-    }
-    .right-silder{ float: right; width: 299px; border-left: 1px solid #999; margin-right: 0; .trs();
-      .r-title{ height: 39px; border-bottom: 1px solid #ccc;
-        ul{ position: relative; background-color: #565669; .cf();
-          li:first-child{ border-right: 1px solid #ccc; }
-          li{ float: left; width: 149px; height: 39px; line-height: 39px; text-align: center; font-size: 14px; cursor: pointer; color: #fff; }
-          li.active{ background-color: #eee; color: #333;  }
-          li:hover{ color: #90ef7f; }
-        }
+  .right-silder{ float: right; width: 299px; border-left: 1px solid #999; margin-right: -300px; .trs();
+    .r-title{ height: 39px; border-bottom: 1px solid #ccc;
+      ul{ position: relative; background-color: #565669; .cf();
+        li:first-child{ border-right: 1px solid #ccc; }
+        li{ float: left; width: 149px; height: 39px; line-height: 39px; text-align: center; font-size: 14px; cursor: pointer; color: #fff; }
+        li.active{ background-color: #eee; color: #333;  }
+        li:hover{ color: #90ef7f; }
       }
-      .r-container{ width: 299px; position: relative; overflow-y: scroll;
-        ul{ padding: 10px;
-          li{ position: relative; display: none;
-            .r-item{ margin-bottom: 15px; position: relative; .cf();
-              span{ float: left; width: 80px; height: 30px; line-height: 30px; }
-              .r-part{ float: left; height: 20px; padding: 5px 0;
-                input{ height: 20px; }
-                select{ height: 20px; }
-              }
+    }
+    .r-container{ width: 299px; position: relative; overflow-y: scroll;
+      ul{ padding: 10px;
+        li{ position: relative; display: none;
+          .r-item{ margin-bottom: 15px; position: relative; .cf();
+            span{ float: left; width: 80px; height: 30px; line-height: 30px; }
+            .r-part{ margin-left: 80px; padding: 5px 0;
+              input{ height: 20px; }
+              select{ height: 20px; }
+              textarea{ width: 100%; padding: 10px; box-sizing: border-box; min-height: 200px; }
             }
+            div.spec{ margin-left: 0; }
           }
         }
       }
-      .save-btn{ width: 100%; height: 40px; line-height: 40px; text-align: center; background-color: #7c82ff; color: #fff; font-size: 14px; cursor: pointer; }
-      .save-btn:hover{ background-color: #90ef7f; color: #333; }
     }
+    .save-btn{ width: 100%; height: 40px; line-height: 40px; text-align: center; background-color: #7c82ff; color: #fff; font-size: 14px; cursor: pointer; }
+    .save-btn:hover{ background-color: #90ef7f; color: #333; }
   }
 }
 
 #drag-temp{ display: none; width: 200px; height: 200px; position: absolute; left: 0; top: 0; border: 2px dashed #f95656; z-index: 99999999; }
 #chart-temp,.chart-temp{ width: 600px; height: 400px; position: absolute; left: 0; top: 0;
+  .edit-btn{ position: absolute; right: 35px; top: -35px; cursor: pointer;
+    i{ font-size: 31px; color: #565669; }
+  }
+  .edit-btn:hover{
+    i{ color: #20b0c2; }
+  }
+  .dele-btn{ position: absolute; right: 0; top: -31px; cursor: pointer;
+    i{ font-size: 29px; color: #565669; }
+  }
+  .dele-btn:hover{
+    i{ color: #bd2c00; }
+  }
   .bar{ position: absolute; }
   .top-bar{ left: 0; top: 0; width: 100%; height: 5px; background-color: #ccc; cursor: n-resize; }
   .right-bar{ right: 0; top: 0; width: 5px; height: 100%; background-color: #ccc; cursor: e-resize; }
   .bottom-bar{ left: 0; bottom: 0; width: 100%; height: 5px; background-color: #ccc; cursor: s-resize; }
   .left-bar{ left: 0; top: 0; width: 5px; height: 100%; background-color: #ccc; cursor: w-resize; }
-  .chart-con{ position: absolute; left: 5px; top: 5px; width: 590px; height: 390px; }
+  .chart-con{ position: absolute; left: 5px; top: 5px; width: 590px; height: 390px; cursor: move; }
 }
 
 

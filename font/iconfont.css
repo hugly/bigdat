@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1495694140489'); /* IE9*/
-  src: url('iconfont.eot?t=1495694140489#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1495694140489') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1495694140489') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1495694140489#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1495890557982'); /* IE9*/
+  src: url('iconfont.eot?t=1495890557982#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1495890557982') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1495890557982') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1495890557982#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -21,11 +21,17 @@
 
 .icon-shanchu:before { content: "\e636"; }
 
+.icon-xiantu:before { content: "\e625"; }
+
 .icon-fanhui1:before { content: "\e604"; }
+
+.icon-bianji:before { content: "\e6e3"; }
 
 .icon-xiajiantou:before { content: "\e60f"; }
 
 .icon-jia:before { content: "\e618"; }
+
+.icon-shanchu1:before { content: "\e65d"; }
 
 .icon-wechaticon10:before { content: "\e619"; }
 
@@ -35,7 +41,13 @@
 
 .icon-jiantouyou:before { content: "\e71c"; }
 
+.icon-zhuzhuangtu:before { content: "\e78e"; }
+
+.icon-3d:before { content: "\e6d9"; }
+
 .icon-fabu:before { content: "\e70e"; }
+
+.icon-hunhetu:before { content: "\e680"; }
 
 .icon-youjiantou:before { content: "\e613"; }
 
@@ -45,11 +57,19 @@
 
 .icon-checkbox:before { content: "\e610"; }
 
+.icon-configure:before { content: "\e60d"; }
+
 .icon-iconxiajiantou:before { content: "\e608"; }
 
 .icon-duoxuan1:before { content: "\e718"; }
 
+.icon-bingtu:before { content: "\e603"; }
+
+.icon-mianjitu:before { content: "\e61e"; }
+
 .icon-help:before { content: "\e602"; }
+
+.icon-scatter-chart:before { content: "\e883"; }
 
 .icon-kaiguan:before { content: "\e653"; }
 
