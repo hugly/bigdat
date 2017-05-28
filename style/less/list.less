@@ -1,2 +1,134 @@
-@import "lib";
+@import "reset";
 
+html,body{ height: 100%; overflow: hidden; }
+.naver{ width: 100%; height: 60px; position: relative; background-color: #47475c;
+  .list-bar{ display: inline-block; position: relative; .cf();
+    i{ float: left; width: 60px; height: 60px; line-height: 60px; font-size: 50px; color: #33a362; text-align: center; }
+    h3{ float: left; height: 60px; line-height: 60px; font-size: 20px; color: #fff; }
+  }
+  .cancel-btn{ float: right; height: 60px; line-height: 60px; margin-right: 20px; cursor: pointer;
+    i{ color: #36c5d5; font-size: 30px; vertical-align: middle; }
+    span{ color: #fff; font-size: 16px; vertical-align: middle; }
+  }
+  .cancel-btn:hover{
+    i{}
+    span{ color: #36c5d5; }
+  }
+}
+.container{ width: 100%; position: relative; .cf();
+  .left-silder{ float: left; width: 300px; background-color: #565669;
+    ul{ position: relative;
+      li{ display: block; height: 60px;
+        a{ display: block; width: 100%; height: 100%; padding: 5px 10px; box-sizing: border-box; position: relative; .cf();
+          i{ float: left; color: #fff; line-height: 50px; font-size: 26px; }
+          span{ float: left; color: #fff; line-height: 50px; font-size: 16px; margin-left: 10px; }
+        }
+      }
+      li.active,li:hover{ background-color: #37c2dd;
+        a{
+          i{ color: #565669; }
+          span{ color: #565669; }
+        }
+      }
+    }
+  }
+  .right-silder{ margin-left: 300px; padding: 10px 30px; box-sizing: border-box; background-color: #edf0f4; overflow-y: scroll;
+    h3{ line-height: 40px; font-size: 16px; margin-bottom: 10px; color: #8b8c8d; }
+    ul{ position: relative; .cf();
+      li{ float: left; width: 198px; height: 228px; border: 1px solid #c2cedb; background-color: #fff; margin: 0 18px 20px 0; cursor: pointer;
+        img{ display: inline-block; width: 198px; height: 150px; }
+        .edit{ display: inline-block; width: 190px; height: 37px; margin: 0 4px; border-bottom: 1px solid #c2cedb;
+          a{ display: inline-block; width: 100%; height: 100%; line-height: 37px;
+            i{ color: #a6b3c5; font-size: 20px; }
+            span{ color: #6d7282; font-size: 14px; }
+          }
+        }
+        .operate{ display: inline-block; width: 190px; height: 40px; margin: 0 4px; position: relative; .cf();
+          a{ float: left; width: 33.3%; line-height: 40px; vertical-align: middle; position: relative; .cf();
+            i{ float: left; color:#a6b3c5; font-size: 20px; padding-left: 5px; }
+            .icon-weibiaoti134,i.hide{ display: none; }
+            i.has-color{ display: block; color: #37c2dd; }
+            span{ float: left; color: #a6b3c5; font-size: 12px; margin-left: 3px; }
+          }
+          a:hover{
+            i{ color: #37c2dd; }
+            span{ color: #37c2dd; }
+          }
+          a:last-child{ margin-right: 0; }
+        }
+      }
+      li:hover{ border-color: #37c2dd; }
+      .add{ float: left; width: 196px; height: 226px; border: 2px dashed #c2cedb; margin: 0 18px 20px 0; background-color: #fff;
+        a{ display: block; width: 100%; height: 100%;
+          i{ display: inline-block; width: 196px; height: 150px; line-height: 170px; text-align: center; color: #a5b7ce; font-size: 80px; }
+          span{ display: inline-block; width: 196px; height: 50px; line-height: 20px; color: #a5b7ce; font-size: 14px; text-align: center; }
+        }
+      }
+      .add:hover{ border-color: #37c2dd; }
+    }
+  }
+  .main-silder{ padding: 10px 0 10px 30px; box-sizing: border-box; background-color: #edf0f4; overflow-y: scroll;
+    h3{ line-height: 40px; font-size: 16px; margin-bottom: 10px; color: #8b8c8d; }
+    ul{ position: relative; .cf();
+      li{ float: left; width: 280px; height: 108px; padding: 10px; border: 1px solid #c2cedb; background-color: #fff; margin: 0 25px 20px 0; cursor: pointer;
+        a{ display: block; width: 100%; height: 100%; position: relative; .cf();
+          img{ float: left; width: 150px; height: 108px; }
+          .tem-info{ margin-left: 160px; height: 108px;
+            h3{ color: #373d41; font-size: 16px; font-weight: normal; width: 120px; height: 40px; line-height: 50px; margin-bottom: 16px; .omit(); }
+            p{ color: #615f62; font-size: 14px; line-height: 20px; }
+          }
+        }
+      }
+      li:hover{ border-color: #37c2dd; }
+    }
+  }
+}
+.zoomer{ display: none; position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 9999999; background-color: rgba(0,0,0,.3); }
+.tem-config{ display: none; position: absolute; left: 50%; top: 50%; width: 298px; height: 288px; margin-left: -150px; margin-top: -300px; background-color: #fff; border: 1px solid #ccc; border-radius: 5px; overflow: hidden; z-index: 99999990;
+  .c-title{ width: 100%; height: 40px; line-height: 40px; text-indent: 20px; font-size: 14px; border-bottom: 1px solid #ccc; background-color: #f9f9f9; color: #666; }
+  .c-info{ padding: 20px; position: relative;
+    ul{ position: relative;
+      li{ display: block; height: 40px; margin-bottom: 10px; position: relative; .cf();
+        span{ float: left; height: 40px; line-height: 40px; font-size: 14px; color: #666; }
+        input{ float: left; width: 174px; margin: 5px 0 5px 10px; height: 16px; line-height: 16px; padding: 5px; }
+      }
+    }
+  }
+  .c-operate{ position: relative; text-align: center;
+    a{ display: inline-block; width: 100px; height: 36px; line-height: 36px; text-align: center; margin: 0 15px; color: #fff; font-size: 14px; border-radius: 2px; }
+    a.c-cancel-btn{ background-color: #bd1707; }
+    a.c-cancel-btn:hover{ background-color: #f4230e; }
+    a.c-save-btn{ background-color: #33a362; }
+    a.c-save-btn:hover{ background-color: #41da81; }
+  }
+  .close-btn{ position: absolute; right: 0; top: 0; width: 40px; height: 40px; line-height: 40px; text-align: center; font-size: 16px; cursor: pointer; color: #999; .trs(); }
+  .close-btn:hover{ .transform(rotate(90deg)) }
+}
+@media screen and (min-width: 1280px) and (max-width: 1600px) {
+  .container{
+    .main-silder{
+      ul{
+        li{ width: 266px; margin: 0 20px 20px 0;
+          a{
+            img{ width: 136px; }
+            .tem-info{ margin-left: 146px; }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 1600px) {
+  .container{
+    .main-silder{
+      ul{
+        li{ width: 328px;
+          a{
+            img{ width: 178px }
+            .tem-info{ margin-left: 188px; }
+          }
+        }
+      }
+    }
+  }
+}

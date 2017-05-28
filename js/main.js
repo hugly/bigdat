@@ -249,7 +249,14 @@
 
         },
         caculateShadow:function(){
-            var height = $(window).height();
+            var height = $(window).height(),
+                conWidth = commonFun.getUrlParam('width'),
+                conHeight = commonFun.getUrlParam('height');
+
+            $('#main-content').css({
+                width:conWidth,
+                height:conHeight
+            });
 
             $('#container,.content,.right-silder').css({
                 height:height-60

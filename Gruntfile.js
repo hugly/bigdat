@@ -17,7 +17,8 @@ module.exports = function(grunt) {
         files: {
             'style/css/main.min.css': 'style/less/main.less',
             'style/css/list.min.css': 'style/less/list.less',
-            'style/css/preview.min.css': 'style/less/preview.less'
+            'style/css/preview.min.css': 'style/less/preview.less',
+            'style/css/login.min.css': 'style/less/login.less'
         }
       }
     },

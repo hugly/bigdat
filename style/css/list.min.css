@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2017-05-27
+@ date:2017-05-28
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -118,5 +118,662 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+/* 清除内外边距 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  /* table elements 表格元素 */
+  margin: 0;
+  padding: 0;
+}
+/* 设置默认字体 */
+body,
+button,
+input,
+select,
+textarea {
+  /* for ie */
+  /*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
+  outline: none;
+  font: 12px/1 Microsoft YaHei, Arial, Tahoma, Helvetica, "\5b8b\4f53", sans-serif;
+  /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+}
+h1 {
+  font-size: 22px;
+}
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 18px;
+  /* 18px / 12px = 1.5 */
+}
+h4 {
+  font-size: 16px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 100%;
+}
+address,
+cite,
+dfn,
+em,
+var {
+  font-style: normal;
+}
+/* 将斜体扶正 */
+code,
+kbd,
+pre,
+samp,
+tt {
+  font-family: "Courier New", Courier, monospace;
+}
+/* 统一等宽字体 */
+small {
+  font-size: 12px;
+}
+/* 小于 12px 的中文很难阅读，让 small 正常化 */
+/* 重置列表元素 */
+ul,
+ol {
+  list-style: none;
+}
+/* 重置文本格式元素 */
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+abbr[title],
+acronym[title] {
+  /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+q:before,
+q:after {
+  content: '';
+}
+/* 重置表单元素 */
+legend {
+  color: #000;
+}
+/* for ie6 */
+fieldset,
+img {
+  border: none;
+}
+/* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 使得表单元素在 ie 下能继承字体大小 */
+}
+/* 重置表格元素 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* 重置 hr */
+hr {
+  border: none;
+  height: 1px;
+}
+body {
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  -khtml-user-select: none;
+  /*早期浏览器*/
+  user-select: none;
+}
+/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
+html {
+  overflow-y: scroll;
+}
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+.naver {
+  width: 100%;
+  height: 60px;
+  position: relative;
+  background-color: #47475c;
+}
+.naver .list-bar {
+  display: inline-block;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.naver .list-bar:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.naver .list-bar i {
+  float: left;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 50px;
+  color: #33a362;
+  text-align: center;
+}
+.naver .list-bar h3 {
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  color: #fff;
+}
+.naver .cancel-btn {
+  float: right;
+  height: 60px;
+  line-height: 60px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.naver .cancel-btn i {
+  color: #36c5d5;
+  font-size: 30px;
+  vertical-align: middle;
+}
+.naver .cancel-btn span {
+  color: #fff;
+  font-size: 16px;
+  vertical-align: middle;
+}
+.naver .cancel-btn:hover span {
+  color: #36c5d5;
+}
+.container {
+  width: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .left-silder {
+  float: left;
+  width: 300px;
+  background-color: #565669;
+}
+.container .left-silder ul {
+  position: relative;
+}
+.container .left-silder ul li {
+  display: block;
+  height: 60px;
+}
+.container .left-silder ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .left-silder ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .left-silder ul li a i {
+  float: left;
+  color: #fff;
+  line-height: 50px;
+  font-size: 26px;
+}
+.container .left-silder ul li a span {
+  float: left;
+  color: #fff;
+  line-height: 50px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.container .left-silder ul li.active,
+.container .left-silder ul li:hover {
+  background-color: #37c2dd;
+}
+.container .left-silder ul li.active a i,
+.container .left-silder ul li:hover a i {
+  color: #565669;
+}
+.container .left-silder ul li.active a span,
+.container .left-silder ul li:hover a span {
+  color: #565669;
+}
+.container .right-silder {
+  margin-left: 300px;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  background-color: #edf0f4;
+  overflow-y: scroll;
+}
+.container .right-silder h3 {
+  line-height: 40px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #8b8c8d;
+}
+.container .right-silder ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .right-silder ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .right-silder ul li {
+  float: left;
+  width: 198px;
+  height: 228px;
+  border: 1px solid #c2cedb;
+  background-color: #fff;
+  margin: 0 18px 20px 0;
+  cursor: pointer;
+}
+.container .right-silder ul li img {
+  display: inline-block;
+  width: 198px;
+  height: 150px;
+}
+.container .right-silder ul li .edit {
+  display: inline-block;
+  width: 190px;
+  height: 37px;
+  margin: 0 4px;
+  border-bottom: 1px solid #c2cedb;
+}
+.container .right-silder ul li .edit a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 37px;
+}
+.container .right-silder ul li .edit a i {
+  color: #a6b3c5;
+  font-size: 20px;
+}
+.container .right-silder ul li .edit a span {
+  color: #6d7282;
+  font-size: 14px;
+}
+.container .right-silder ul li .operate {
+  display: inline-block;
+  width: 190px;
+  height: 40px;
+  margin: 0 4px;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .right-silder ul li .operate:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .right-silder ul li .operate a {
+  float: left;
+  width: 33.3%;
+  line-height: 40px;
+  vertical-align: middle;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .right-silder ul li .operate a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .right-silder ul li .operate a i {
+  float: left;
+  color: #a6b3c5;
+  font-size: 20px;
+  padding-left: 5px;
+}
+.container .right-silder ul li .operate a .icon-weibiaoti134,
+.container .right-silder ul li .operate a i.hide {
+  display: none;
+}
+.container .right-silder ul li .operate a i.has-color {
+  display: block;
+  color: #37c2dd;
+}
+.container .right-silder ul li .operate a span {
+  float: left;
+  color: #a6b3c5;
+  font-size: 12px;
+  margin-left: 3px;
+}
+.container .right-silder ul li .operate a:hover i {
+  color: #37c2dd;
+}
+.container .right-silder ul li .operate a:hover span {
+  color: #37c2dd;
+}
+.container .right-silder ul li .operate a:last-child {
+  margin-right: 0;
+}
+.container .right-silder ul li:hover {
+  border-color: #37c2dd;
+}
+.container .right-silder ul .add {
+  float: left;
+  width: 196px;
+  height: 226px;
+  border: 2px dashed #c2cedb;
+  margin: 0 18px 20px 0;
+  background-color: #fff;
+}
+.container .right-silder ul .add a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.container .right-silder ul .add a i {
+  display: inline-block;
+  width: 196px;
+  height: 150px;
+  line-height: 170px;
+  text-align: center;
+  color: #a5b7ce;
+  font-size: 80px;
+}
+.container .right-silder ul .add a span {
+  display: inline-block;
+  width: 196px;
+  height: 50px;
+  line-height: 20px;
+  color: #a5b7ce;
+  font-size: 14px;
+  text-align: center;
+}
+.container .right-silder ul .add:hover {
+  border-color: #37c2dd;
+}
+.container .main-silder {
+  padding: 10px 0 10px 30px;
+  box-sizing: border-box;
+  background-color: #edf0f4;
+  overflow-y: scroll;
+}
+.container .main-silder h3 {
+  line-height: 40px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #8b8c8d;
+}
+.container .main-silder ul {
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .main-silder ul:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .main-silder ul li {
+  float: left;
+  width: 280px;
+  height: 108px;
+  padding: 10px;
+  border: 1px solid #c2cedb;
+  background-color: #fff;
+  margin: 0 25px 20px 0;
+  cursor: pointer;
+}
+.container .main-silder ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .main-silder ul li a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .main-silder ul li a img {
+  float: left;
+  width: 150px;
+  height: 108px;
+}
+.container .main-silder ul li a .tem-info {
+  margin-left: 160px;
+  height: 108px;
+}
+.container .main-silder ul li a .tem-info h3 {
+  color: #373d41;
+  font-size: 16px;
+  font-weight: normal;
+  width: 120px;
+  height: 40px;
+  line-height: 50px;
+  margin-bottom: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.container .main-silder ul li a .tem-info p {
+  color: #615f62;
+  font-size: 14px;
+  line-height: 20px;
+}
+.container .main-silder ul li:hover {
+  border-color: #37c2dd;
+}
+.zoomer {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.tem-config {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 298px;
+  height: 288px;
+  margin-left: -150px;
+  margin-top: -300px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 99999990;
+}
+.tem-config .c-title {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-indent: 20px;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #666;
+}
+.tem-config .c-info {
+  padding: 20px;
+  position: relative;
+}
+.tem-config .c-info ul {
+  position: relative;
+}
+.tem-config .c-info ul li {
+  display: block;
+  height: 40px;
+  margin-bottom: 10px;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.tem-config .c-info ul li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.tem-config .c-info ul li span {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  color: #666;
+}
+.tem-config .c-info ul li input {
+  float: left;
+  width: 174px;
+  margin: 5px 0 5px 10px;
+  height: 16px;
+  line-height: 16px;
+  padding: 5px;
+}
+.tem-config .c-operate {
+  position: relative;
+  text-align: center;
+}
+.tem-config .c-operate a {
+  display: inline-block;
+  width: 100px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  margin: 0 15px;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 2px;
+}
+.tem-config .c-operate a.c-cancel-btn {
+  background-color: #bd1707;
+}
+.tem-config .c-operate a.c-cancel-btn:hover {
+  background-color: #f4230e;
+}
+.tem-config .c-operate a.c-save-btn {
+  background-color: #33a362;
+}
+.tem-config .c-operate a.c-save-btn:hover {
+  background-color: #41da81;
+}
+.tem-config .close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: #999;
+  will-change: all;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.tem-config .close-btn:hover {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+@media screen and (min-width: 1280px) and (max-width: 1600px) {
+  .container .main-silder ul li {
+    width: 266px;
+    margin: 0 20px 20px 0;
+  }
+  .container .main-silder ul li a img {
+    width: 136px;
+  }
+  .container .main-silder ul li a .tem-info {
+    margin-left: 146px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .container .main-silder ul li {
+    width: 328px;
+  }
+  .container .main-silder ul li a img {
+    width: 178px;
+  }
+  .container .main-silder ul li a .tem-info {
+    margin-left: 188px;
   }
 }

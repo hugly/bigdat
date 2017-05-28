@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据可视化系统</title>
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../style/css/list.min.css">
+    <script src="../js/lib/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<div class="naver">
+    <div class="list-bar">
+        <i class="iconfont icon-shujukeshihua"></i>
+        <h3>数据可视化系统</h3>
+    </div>
+    <div class="cancel-btn">
+        <i class="iconfont icon-quxiao"></i>
+        <span>取消创建</span>
+    </div>
+</div>
+<div class="container">
+    <div class="main-silder">
+        <h3>请选择模板</h3>
+        <ul>
+            <li data-para0="某城市交通情况" data-para1="1920" data-para2="1080"><a href="javascript:;">
+                    <img src="../images/back.jpg">
+                    <div class="tem-info">
+                        <h3>某城市交通情况</h3>
+                        <p>比例:16:9</p>
+                        <p>1920*1080px</p>
+                    </div>
+            </a></li>
+        </ul>
+    </div>
+</div>
+<div class="zoomer" id="zoomer"></div>
+<div class="tem-config" id="tem-config">
+    <div class="c-title">模板信息</div>
+    <div class="c-info">
+        <ul>
+            <li>
+                <span>模板名称:</span>
+                <input type="text" placeholder="请输入模板名称">
+            </li>
+            <li>
+                <span>模板宽度:</span>
+                <input type="number" placeholder="请输入模板宽度,单位为像素">
+            </li>
+            <li>
+                <span>模板高度:</span>
+                <input type="number" placeholder="请输入模板高度,单位为像素">
+            </li>
+        </ul>
+    </div>
+    <div class="c-operate">
+        <a href="javascript:;" class="c-save-btn">确定</a>
+        <a href="javascript:;" class="c-cancel-btn">取消</a>
+    </div>
+    <i class="close-btn iconfont icon-quxiao1"></i>
+</div>
+<script type="text/javascript" src="../js/templete.js"></script>
+</body>
+</html>
