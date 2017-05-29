@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2017-05-28
+@ date:2017-05-29
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -289,7 +289,7 @@ body {
 }
 .naver .back {
   float: left;
-  width: 16%;
+  width: 10%;
   height: 60px;
   line-height: 60px;
   cursor: pointer;
@@ -326,7 +326,7 @@ body {
 }
 .naver h3 {
   float: left;
-  width: 60%;
+  width: 66%;
   height: 60px;
   line-height: 60px;
   text-align: center;
@@ -335,10 +335,13 @@ body {
 }
 .naver .left-sidebar {
   float: left;
-  width: 60%;
+  width: 66%;
+  height: 60px;
   position: relative;
+  text-align: center;
 }
 .naver .left-sidebar .nav {
+  display: inline-block;
   margin-bottom: 0;
   padding-left: 0;
   position: relative;
@@ -354,7 +357,7 @@ body {
 }
 .naver .left-sidebar .nav li {
   float: left;
-  width: 12.5%;
+  width: 100px;
   position: relative;
   cursor: pointer;
 }
@@ -492,7 +495,7 @@ body {
   height: 60px;
   line-height: 60px;
   color: #20b0c2;
-  font-size: 30px;
+  font-size: 20px;
   margin-right: 5px;
 }
 .naver .oper ul li a span {
@@ -500,7 +503,7 @@ body {
   height: 60px;
   line-height: 65px;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
 }
 .naver .oper ul li a:hover i {
   color: #90ef7f;
@@ -544,9 +547,9 @@ body {
 }
 .container .right-silder {
   float: right;
-  width: 299px;
+  width: 399px;
   border-left: 1px solid #999;
-  margin-right: -300px;
+  margin-right: 0;
   will-change: all;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -575,7 +578,7 @@ body {
 }
 .container .right-silder .r-title ul li {
   float: left;
-  width: 149px;
+  width: 199px;
   height: 39px;
   line-height: 39px;
   text-align: center;
@@ -591,54 +594,154 @@ body {
   color: #90ef7f;
 }
 .container .right-silder .r-container {
-  width: 299px;
+  width: 399px;
   position: relative;
   overflow-y: scroll;
 }
-.container .right-silder .r-container ul {
+.container .right-silder .r-container .c-ul {
   padding: 10px;
 }
-.container .right-silder .r-container ul li {
+.container .right-silder .r-container .c-ul .c-item {
   position: relative;
   display: none;
 }
-.container .right-silder .r-container ul li .r-item {
-  margin-bottom: 15px;
+.container .right-silder .r-container .c-ul .c-item .r-item {
+  margin-bottom: 10px;
   position: relative;
   min-height: 1px;
   zoom: 1;
 }
-.container .right-silder .r-container ul li .r-item:after {
+.container .right-silder .r-container .c-ul .c-item .r-item:after {
   content: "020";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.container .right-silder .r-container ul li .r-item span {
+.container .right-silder .r-container .c-ul .c-item .r-item span {
   float: left;
   width: 80px;
-  height: 30px;
-  line-height: 30px;
+  height: 40px;
+  line-height: 40px;
 }
-.container .right-silder .r-container ul li .r-item .r-part {
-  margin-left: 80px;
+.container .right-silder .r-container .c-ul .c-item .r-item .r-part {
+  float: left;
   padding: 5px 0;
 }
-.container .right-silder .r-container ul li .r-item .r-part input {
-  height: 20px;
+.container .right-silder .r-container .c-ul .c-item .r-item .r-part input {
+  height: 14px;
+  padding: 6px;
 }
-.container .right-silder .r-container ul li .r-item .r-part select {
-  height: 20px;
+.container .right-silder .r-container .c-ul .c-item .r-item .r-part input[type='text'],
+.container .right-silder .r-container .c-ul .c-item .r-item .r-part input[type='number'] {
+  width: 200px;
 }
-.container .right-silder .r-container ul li .r-item .r-part textarea {
-  width: 100%;
+.container .right-silder .r-container .c-ul .c-item .r-item .r-part input[type='color'] {
+  width: 120px;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-part select {
+  height: 30px;
+  padding: 5px 0;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-part textarea {
+  width: 360px;
   padding: 10px;
   box-sizing: border-box;
   min-height: 200px;
 }
-.container .right-silder .r-container ul li .r-item div.spec {
+.container .right-silder .r-container .c-ul .c-item .r-item div.spec {
   margin-left: 0;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul {
+  width: 360px;
+  position: relative;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li {
+  width: 360px;
+  height: 30px;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item {
+  float: left;
+  width: 89px;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item span {
+  display: inline-block;
+  width: 85px;
+  padding: 0 2px;
+  height: 30px;
+  line-height: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item input {
+  display: none;
+  width: 81px;
+  height: 14px;
+  line-height: 14px;
+  padding: 8px 4px;
+  border: none;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item a {
+  display: inline-block;
+  margin: 0 2px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item a:hover {
+  text-decoration: underline;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item a.a-save {
+  display: none;
+  color: #41da81;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item a.a-edit {
+  color: #09f;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item a.a-dele {
+  color: #bd2c00;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-add {
+  width: 359px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-add:hover {
+  background-color: #f1f1f1;
+  color: #09f;
 }
 .container .right-silder .save-btn {
   width: 100%;

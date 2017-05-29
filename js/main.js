@@ -9,6 +9,7 @@
             this.bindEvent();
             this.caculateShadow();
             //this.leftSilderAnimateFn();
+            this.getPageTempluginInfoById();
         },
         bindEvent:function(){
             var self            = this,
@@ -19,7 +20,8 @@
                 oDragTem        = $('#drag-temp'),
                 oChartTem       = $('#chart-temp'),
                 oLeftSilder     = $('.left-sidebar'),
-                oRightSilder    = $('.right-silder');
+                oRightSilder    = $('.right-silder'),
+                oDataSource     = $('#data-source');
 
             //操作区域的删除操作
             oMainContent.on('click','.chart-temp .dele-btn',function(){
@@ -30,6 +32,7 @@
 
             //操作区域的编辑操作
             oMainContent.on('click','.chart-temp .edit-btn',function(){
+
                 oContainer.find('.right-silder').addClass('r-show');
                 oContainer.find('.content').addClass('has-margin');
             });
@@ -41,8 +44,8 @@
                 oRightSilder.find('.r-title li').removeClass('active');
                 $(this).addClass('active');
 
-                oRightSilder.find('.r-container li').hide();
-                oRightSilder.find('.r-container li').eq(index).show();
+                oRightSilder.find('.r-container .c-item').hide();
+                oRightSilder.find('.r-container .c-item').eq(index).show();
             });
 
             //从左侧菜单栏拖拽单元目标
@@ -247,15 +250,42 @@
                 });
             });
 
+            //数据源的增删改查
+
+            //add
+            oDataSource.on('click','.r-add',function(){
+                
+            });
+            //modify
+            oDataSource.on('click','.a-edit',function(){
+                var obj = $(this).closest('li');
+
+                obj.find('span').hide();
+                obj.find('input').show();
+
+                $(this).hide();
+                obj.find('.a-save').show();
+            });
+            //dele
+            oDataSource.on('click','.a-dele',function(){
+
+            });
+            //save
+            oDataSource.on('click','.a-save',function(){
+
+            });
+
         },
         caculateShadow:function(){
             var height = $(window).height(),
                 conWidth = commonFun.getUrlParam('width'),
-                conHeight = commonFun.getUrlParam('height');
+                conHeight = commonFun.getUrlParam('height'),
+                conColor = commonFun.getUrlParam('color');
 
             $('#main-content').css({
                 width:conWidth,
-                height:conHeight
+                height:conHeight,
+                'background-color':decodeURIComponent(conColor)
             });
 
             $('#container,.content,.right-silder').css({
@@ -284,10 +314,27 @@
         //根据索引和图表元素生成图表
         createChartById:function(index,obj){
             this.currentChartConfig = chartConfig[index];
-            // this.currentChartConfig.title.text = 'aaaaaaa';
 
             obj.highcharts(this.currentChartConfig);
+        },
+        //获取页面的临时插件
+        getPageTempluginInfoById:function(){
+            AJAX.ajax({
+                url:'api/ModulePage/GetTempPlugsById',
+                type:'get',
+                data:{
+                    id:commonFun.getUrlParam('id')
+                },
+                callback:function(rs){
+                    console.log(rs);
+                }
+            })
+        },
+        //保存页面配置
+        savePageSetting:function(){
+
         }
+
     };
 
     oMain.init();

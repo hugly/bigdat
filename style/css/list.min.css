@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2017-05-28
+@ date:2017-05-29
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -439,20 +439,53 @@ body {
   height: 37px;
   margin: 0 4px;
   border-bottom: 1px solid #c2cedb;
+  overflow: hidden;
 }
 .container .right-silder ul li .edit a {
   display: inline-block;
   width: 100%;
   height: 100%;
   line-height: 37px;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .right-silder ul li .edit a:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 .container .right-silder ul li .edit a i {
+  float: left;
+  width: 27px;
+  height: 37px;
+  line-height: 37px;
+  text-align: center;
   color: #a6b3c5;
   font-size: 20px;
 }
 .container .right-silder ul li .edit a span {
+  float: left;
+  width: 163px;
+  height: 37px;
   color: #6d7282;
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.container .right-silder ul li .edit a input {
+  display: none;
+  float: left;
+  width: 163px;
+  height: 14px;
+  padding: 11px 0;
+  font-size: 14px;
+  border: none;
 }
 .container .right-silder ul li .operate {
   display: inline-block;
@@ -648,7 +681,7 @@ body {
   left: 50%;
   top: 50%;
   width: 298px;
-  height: 288px;
+  height: 328px;
   margin-left: -150px;
   margin-top: -300px;
   background-color: #fff;
@@ -703,6 +736,9 @@ body {
   height: 16px;
   line-height: 16px;
   padding: 5px;
+}
+.tem-config .c-info ul li:last-child {
+  margin-bottom: 0;
 }
 .tem-config .c-operate {
   position: relative;

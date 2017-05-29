@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../font/iconfont.css">
     <link rel="stylesheet" href="../style/css/list.min.css">
     <script src="../js/lib/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/lib/commonPlug.js"></script>
 </head>
 <body>
 <div class="naver">
@@ -22,7 +23,7 @@
     <div class="main-silder">
         <h3>请选择模板</h3>
         <ul>
-            <li data-para0="某城市交通情况" data-para1="1920" data-para2="1080"><a href="javascript:;">
+            <li data-name="某城市交通情况" data-width="1920" data-height="1080" data-id="" data-color=""><a href="javascript:;">
                     <img src="../images/back.jpg">
                     <div class="tem-info">
                         <h3>某城市交通情况</h3>
@@ -50,6 +51,10 @@
                 <span>模板高度:</span>
                 <input type="number" placeholder="请输入模板高度,单位为像素">
             </li>
+            <li>
+                <span>背景颜色:</span>
+                <input type="color" placeholder="请选择背景颜色">
+            </li>
         </ul>
     </div>
     <div class="c-operate">
@@ -59,5 +64,14 @@
     <i class="close-btn iconfont icon-quxiao1"></i>
 </div>
 <script type="text/javascript" src="../js/templete.js"></script>
+
+<li data-name="某城市交通情况" data-width="1920" data-height="1080" data-id="" data-color="" style="display: none;" id="tem-temp"><a href="javascript:;">
+    <img src="../images/back.jpg">
+    <div class="tem-info">
+        <h3>某城市交通情况</h3>
+        <p>比例:16:9</p>
+        <p>1920px*1080px</p>
+    </div>
+</a></li>
 </body>
 </html>
