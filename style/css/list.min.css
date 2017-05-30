@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2017-05-30
+@ date:2017-05-31
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -401,25 +401,29 @@ body {
   background-color: #edf0f4;
   overflow-y: scroll;
 }
-.container .right-silder h3 {
+.container .right-silder .sil-item {
+  display: none;
+  position: relative;
+}
+.container .right-silder .sil-item h3 {
   line-height: 40px;
   font-size: 16px;
   margin-bottom: 10px;
   color: #8b8c8d;
 }
-.container .right-silder ul {
+.container .right-silder .sil-item #my-view {
   position: relative;
   min-height: 1px;
   zoom: 1;
 }
-.container .right-silder ul:after {
+.container .right-silder .sil-item #my-view:after {
   content: "020";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.container .right-silder ul li {
+.container .right-silder .sil-item #my-view li {
   float: left;
   width: 198px;
   height: 228px;
@@ -428,12 +432,12 @@ body {
   margin: 0 18px 20px 0;
   cursor: pointer;
 }
-.container .right-silder ul li img {
+.container .right-silder .sil-item #my-view li img {
   display: inline-block;
   width: 198px;
   height: 150px;
 }
-.container .right-silder ul li .edit {
+.container .right-silder .sil-item #my-view li .edit {
   display: inline-block;
   width: 190px;
   height: 37px;
@@ -441,7 +445,7 @@ body {
   border-bottom: 1px solid #c2cedb;
   overflow: hidden;
 }
-.container .right-silder ul li .edit a {
+.container .right-silder .sil-item #my-view li .edit a {
   display: inline-block;
   width: 100%;
   height: 100%;
@@ -450,14 +454,14 @@ body {
   min-height: 1px;
   zoom: 1;
 }
-.container .right-silder ul li .edit a:after {
+.container .right-silder .sil-item #my-view li .edit a:after {
   content: "020";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.container .right-silder ul li .edit a i {
+.container .right-silder .sil-item #my-view li .edit a i {
   float: left;
   width: 27px;
   height: 37px;
@@ -466,7 +470,7 @@ body {
   color: #a6b3c5;
   font-size: 20px;
 }
-.container .right-silder ul li .edit a span {
+.container .right-silder .sil-item #my-view li .edit a span {
   float: left;
   width: 163px;
   height: 37px;
@@ -478,7 +482,7 @@ body {
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
-.container .right-silder ul li .edit a input {
+.container .right-silder .sil-item #my-view li .edit a input {
   display: none;
   float: left;
   width: 163px;
@@ -487,7 +491,7 @@ body {
   font-size: 14px;
   border: none;
 }
-.container .right-silder ul li .operate {
+.container .right-silder .sil-item #my-view li .operate {
   display: inline-block;
   width: 190px;
   height: 40px;
@@ -496,14 +500,14 @@ body {
   min-height: 1px;
   zoom: 1;
 }
-.container .right-silder ul li .operate:after {
+.container .right-silder .sil-item #my-view li .operate:after {
   content: "020";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.container .right-silder ul li .operate a {
+.container .right-silder .sil-item #my-view li .operate a {
   float: left;
   width: 33.3%;
   line-height: 40px;
@@ -512,46 +516,46 @@ body {
   min-height: 1px;
   zoom: 1;
 }
-.container .right-silder ul li .operate a:after {
+.container .right-silder .sil-item #my-view li .operate a:after {
   content: "020";
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.container .right-silder ul li .operate a i {
+.container .right-silder .sil-item #my-view li .operate a i {
   float: left;
   color: #a6b3c5;
   font-size: 20px;
   padding-left: 5px;
 }
-.container .right-silder ul li .operate a .icon-weibiaoti134,
-.container .right-silder ul li .operate a i.hide {
+.container .right-silder .sil-item #my-view li .operate a .icon-weibiaoti134,
+.container .right-silder .sil-item #my-view li .operate a i.hide {
   display: none;
 }
-.container .right-silder ul li .operate a i.has-color {
+.container .right-silder .sil-item #my-view li .operate a i.has-color {
   display: block;
   color: #37c2dd;
 }
-.container .right-silder ul li .operate a span {
+.container .right-silder .sil-item #my-view li .operate a span {
   float: left;
   color: #a6b3c5;
   font-size: 12px;
   margin-left: 3px;
 }
-.container .right-silder ul li .operate a:hover i {
+.container .right-silder .sil-item #my-view li .operate a:hover i {
   color: #37c2dd;
 }
-.container .right-silder ul li .operate a:hover span {
+.container .right-silder .sil-item #my-view li .operate a:hover span {
   color: #37c2dd;
 }
-.container .right-silder ul li .operate a:last-child {
+.container .right-silder .sil-item #my-view li .operate a:last-child {
   margin-right: 0;
 }
-.container .right-silder ul li:hover {
+.container .right-silder .sil-item #my-view li:hover {
   border-color: #37c2dd;
 }
-.container .right-silder ul .add {
+.container .right-silder .sil-item #my-view .add {
   float: left;
   width: 196px;
   height: 226px;
@@ -559,12 +563,12 @@ body {
   margin: 0 18px 20px 0;
   background-color: #fff;
 }
-.container .right-silder ul .add a {
+.container .right-silder .sil-item #my-view .add a {
   display: block;
   width: 100%;
   height: 100%;
 }
-.container .right-silder ul .add a i {
+.container .right-silder .sil-item #my-view .add a i {
   display: inline-block;
   width: 196px;
   height: 150px;
@@ -573,7 +577,7 @@ body {
   color: #a5b7ce;
   font-size: 80px;
 }
-.container .right-silder ul .add a span {
+.container .right-silder .sil-item #my-view .add a span {
   display: inline-block;
   width: 196px;
   height: 50px;
@@ -582,13 +586,154 @@ body {
   font-size: 14px;
   text-align: center;
 }
-.container .right-silder ul .add:hover {
+.container .right-silder .sil-item #my-view .add:hover {
   border-color: #37c2dd;
 }
-.container .main-silder {
-  padding: 10px 0 10px 30px;
+.container .right-silder .sil-item .r-item {
+  margin-bottom: 10px;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .right-silder .sil-item .r-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .right-silder .sil-item .r-item span {
+  float: left;
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+}
+.container .right-silder .sil-item .r-item .r-part {
+  float: left;
+  padding: 5px 0;
+}
+.container .right-silder .sil-item .r-item .r-part input {
+  height: 14px;
+  padding: 6px;
+}
+.container .right-silder .sil-item .r-item .r-part input[type='text'],
+.container .right-silder .sil-item .r-item .r-part input[type='number'] {
+  width: 200px;
+}
+.container .right-silder .sil-item .r-item .r-part input[type='color'] {
+  width: 120px;
+}
+.container .right-silder .sil-item .r-item .r-part select {
+  height: 30px;
+  padding: 5px 0;
+}
+.container .right-silder .sil-item .r-item .r-part textarea {
+  width: 360px;
+  padding: 10px;
   box-sizing: border-box;
-  background-color: #edf0f4;
+  min-height: 400px;
+}
+.container .right-silder .sil-item .r-item div.spec {
+  margin-left: 0;
+}
+.container .right-silder .sil-item .r-item .r-ul {
+  width: 904px;
+  position: relative;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li {
+  width: 904px;
+  height: 40px;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li .a-item {
+  float: left;
+  width: 225px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  position: relative;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li .a-item:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li .a-item span {
+  display: inline-block;
+  width: 221px;
+  padding: 0 2px;
+  height: 40px;
+  line-height: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li .a-item input {
+  display: none;
+  width: 217px;
+  height: 14px;
+  line-height: 14px;
+  padding: 13px 4px;
+  border: none;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li .a-item a {
+  display: inline-block;
+  margin: 0 1px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li .a-item a:hover {
+  text-decoration: underline;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li .a-item a.a-save {
+  display: none;
+  color: #41da81;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li .a-item a.a-edit {
+  color: #09f;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li .a-item a.a-dele {
+  color: #bd2c00;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-li .a-item a.a-use {
+  color: #f95656;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-add {
+  width: 904px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+}
+.container .right-silder .sil-item .r-item .r-ul .r-add:hover {
+  background-color: #f1f1f1;
+  color: #09f;
+}
+.container .main-silder {
+  float: left;
+  width: 320px;
+  background-color: #373d41;
   overflow-y: scroll;
 }
 .container .main-silder h3 {
@@ -614,9 +759,7 @@ body {
   width: 280px;
   height: 108px;
   padding: 10px;
-  border: 1px solid #c2cedb;
-  background-color: #fff;
-  margin: 0 25px 20px 0;
+  background-color: #373d41;
   cursor: pointer;
 }
 .container .main-silder ul li a {
@@ -644,7 +787,7 @@ body {
   height: 108px;
 }
 .container .main-silder ul li a .tem-info h3 {
-  color: #373d41;
+  color: #fff;
   font-size: 16px;
   font-weight: normal;
   width: 120px;
@@ -663,7 +806,46 @@ body {
   line-height: 20px;
 }
 .container .main-silder ul li:hover {
-  border-color: #37c2dd;
+  border-color: #4d5459;
+}
+.container .r-content {
+  margin-left: 320px;
+  position: relative;
+  background-color: #0f2940;
+}
+.container .r-content .r-operate {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #2b2f32;
+  min-height: 1px;
+  zoom: 1;
+}
+.container .r-content .r-operate:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .r-content .r-operate span {
+  float: left;
+  line-height: 50px;
+  color: #fff;
+  text-indent: 20px;
+}
+.container .r-content .r-operate a {
+  float: right;
+  height: 30px;
+  margin: 10px;
+  width: 80px;
+  line-height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  background-color: #20c1dc;
 }
 .zoomer {
   display: none;
@@ -736,6 +918,10 @@ body {
   height: 16px;
   line-height: 16px;
   padding: 5px;
+}
+.tem-config .c-info ul li select {
+  height: 20px;
+  margin: 10px;
 }
 .tem-config .c-info ul li:last-child {
   margin-bottom: 0;

@@ -2,15 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="../font/iconfont.css">
-    <link rel="stylesheet" href="../style/css/preview.min.css">
+    <title>数据可视化系统</title>
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../style/css/main.min.css">
+    <script src="../js/config.js"></script>
     <script src="../js/lib/jquery-1.8.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/lib/commonPlug.js"></script>
     <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
-    <script src="https://cdn.hcharts.cn/highstock/highstock.js"></script>
-    <script src="https://cdn.hcharts.cn/highmaps/highmaps.js"></script>
+    <!--<script src="https://cdn.hcharts.cn/highstock/highstock.js"></script>-->
+    <!--<script src="https://cdn.hcharts.cn/highmaps/highmaps.js"></script>-->
 </head>
 <body>
+<div class="container" id="container">
+    <div class="content">
+        <div class="main-content" id="main-content"></div>
+    </div>
+</div>
+<div id="drag-temp"></div>
 
+<div id="chart-temp" class="chart-temp" style="display: none;">
+    <div class="bar top-bar"></div>
+    <div class="bar right-bar"></div>
+    <div class="bar bottom-bar"></div>
+    <div class="bar left-bar"></div>
+    <div class="edit-btn"><i class="iconfont icon-bianji"></i></div>
+    <div class="dele-btn"><i class="iconfont icon-shanchu1"></i></div>
+    <div class="chart-con"></div>
+</div>
+<script type="text/javascript" src="../js/preive.js"></script>
 </body>
 </html>

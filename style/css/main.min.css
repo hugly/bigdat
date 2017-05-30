@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2017-05-30
+@ date:2017-05-31
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -544,6 +544,8 @@ body {
   width: 1200px;
   height: 1200px;
   background-color: #eee;
+  position: relative;
+  overflow: hidden;
 }
 .container .right-silder {
   float: right;
@@ -751,14 +753,36 @@ body {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  background-color: #7c82ff;
-  color: #fff;
   font-size: 14px;
   cursor: pointer;
+  min-height: 1px;
+  zoom: 1;
 }
-.container .right-silder .save-btn:hover {
+.container .right-silder .save-btn:after {
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container .right-silder .save-btn a {
+  float: left;
+  width: 50%;
+  height: 40px;
+  color: #fff;
+}
+.container .right-silder .save-btn a.a-save-btn {
+  background-color: #7c82ff;
+}
+.container .right-silder .save-btn a.a-save-btn:hover {
   background-color: #90ef7f;
   color: #333;
+}
+.container .right-silder .save-btn a.a-close-btn {
+  background-color: #f95656;
+}
+.container .right-silder .save-btn a.a-close-btn:hover {
+  background-color: #bd2c00;
 }
 #drag-temp {
   display: none;

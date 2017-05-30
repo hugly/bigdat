@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据可视化系统</title>
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../style/css/list.min.css">
+    <script type="text/javascript" src="../js/lib/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/lib/commonPlug.js"></script>
+    <script type="text/javascript" src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+</head>
+<body>
+<div class="naver">
+    <div class="list-bar">
+        <i class="iconfont icon-shujukeshihua"></i>
+        <h3>选择模板</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="left-silder">
+        <ul>
+            <li class="active"><a href="javascript:;">
+                <i class="iconfont icon-keshihua"></i>
+                <span>我的可视化</span>
+            </a></li>
+            <li><a href="javascript:;">
+                <i class="iconfont icon-keshihua"></i>
+                <span>我的数据</span>
+            </a></li>
+            <li><a href="javascript:;">
+                <i class="iconfont icon-keshihua"></i>
+                <span>优秀案例</span>
+            </a></li>
+        </ul>
+    </div>
+    <div class="right-silder">
+    </div>
+</div>
+<div class="zoomer" id="zoomer"></div>
+<div class="tem-config" id="tem-config">
+    <div class="c-title">模板信息</div>
+    <div class="c-info">
+        <ul>
+            <li>
+                <span>模板名称:</span>
+                <input type="text" placeholder="请输入模板名称">
+            </li>
+            <li>
+                <span>模板宽度:</span>
+                <input type="number" placeholder="请输入模板宽度,单位为像素">
+            </li>
+            <li>
+                <span>模板高度:</span>
+                <input type="number" placeholder="请输入模板高度,单位为像素">
+            </li>
+            <li>
+                <span>背景颜色:</span>
+                <input type="color" placeholder="请选择背景颜色">
+            </li>
+        </ul>
+    </div>
+    <div class="c-operate">
+        <a href="javascript:;" class="c-save-btn">确定</a>
+        <a href="javascript:;" class="c-cancel-btn">取消</a>
+    </div>
+    <i class="close-btn iconfont icon-quxiao1"></i>
+</div>
+<li style="display: none;" id="temp" data-name="某城市交通情况" data-width="1920" data-height="1080" data-id="" data-color="" style="display: none;" >
+    <img src="../images/back.jpg">
+    <div class="edit">
+        <a href="javascript:;">
+            <i class="iconfont icon-wechaticon10"></i>
+            <span>某城市交通状况</span>
+            <input type="text" placeholder="请输入可视化名称">
+        </a>
+    </div>
+    <div class="operate">
+        <a href="javascript:;" class="preview-btn">
+            <i class="iconfont icon-yulan" style="font-size: 20px; line-height: 36px;"></i>
+            <span>预览</span>
+        </a>
+        <a href="javascript:;" class="publish-btn">
+            <i class="iconfont icon-kaiguan" style="font-size: 24px;"></i>
+            <i class="iconfont icon-weibiaoti134" style="font-size: 24px;"></i>
+            <span>发布</span>
+        </a>
+        <a href="javascript:;" class="dele-btn">
+            <i class="iconfont icon-shanchu" style="line-height: 36px;"></i>
+            <span>删除</span>
+        </a>
+    </div>
+</li>
+
+</body>
+</html>

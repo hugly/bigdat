@@ -11,11 +11,39 @@
 <div class="login">
     <div class="account" id="account">
         <h3 class="title">智慧宁夏数据可视化系统</h3>
-        <input class="name" type="text" placeholder="请输入用户名">
-        <input class="password" type="password" placeholder="请输入密码">
-        <a href="list.html" class="acc-btn">登录</a>
+        <input class="name" id="username" type="text" placeholder="请输入用户名">
+        <input class="password" id="password" type="password" placeholder="请输入密码">
+        <a href="javascript:;" class="acc-btn">登录</a>
         <a href="javascript:;" class="accing-btn">登录中</a>
     </div>
+    <script>
+        $(document).ready(function () {
+
+            $(".acc-btn").click(function () {
+
+                $.ajax({
+                    type: "GET",
+                    url: "http://123.207.7.73:8012/api/LoginUser/Validate",
+                    data: { userName: $("#username").val(), password: $("#password").val() },
+                    dataType: "json",
+                    beforeSend: function () {
+                        $(".accing-btn").show();
+                        $(".acc-btn").hide();
+                    }
+                    , success: function (data) {
+                        $(".accing-btn").hide();
+                        $(".acc-btn").show();
+                        if (data.Success) {
+                            window.location.href = "list.html";
+                        } else {
+                            alert("账号或者密码不正确");
+                        }
+                    }
+                });
+            })
+
+        });
+    </script>
 </div>
 </body>
 </html>

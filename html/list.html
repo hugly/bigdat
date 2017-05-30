@@ -19,20 +19,38 @@
 <div class="container">
     <div class="left-silder">
         <ul>
-            <li><a href="javascript:;">
+            <li class="active"><a href="javascript:;">
                 <i class="iconfont icon-keshihua"></i>
                 <span>我的可视化</span>
+            </a></li>
+            <li><a href="javascript:;">
+                <i class="iconfont icon-keshihua"></i>
+                <span>我的数据</span>
+            </a></li>
+            <li><a href="templete.html">
+                <i class="iconfont icon-keshihua"></i>
+                <span>优秀案例</span>
             </a></li>
         </ul>
     </div>
     <div class="right-silder">
-        <h3>我的可视化</h3>
-        <ul>
-            <div class="add"><a href="javascript:;">
-                <i class="iconfont icon-jia"></i>
-                <span>新建可视化</span>
-            </a></div>
-        </ul>
+        <div class="sil-item" style="display: block;">
+            <h3>我的可视化</h3>
+            <ul id="my-view">
+                <div class="add"><a href="javascript:;">
+                    <i class="iconfont icon-jia"></i>
+                    <span>新建可视化</span>
+                </a></div>
+            </ul>
+        </div>
+        <div class="sil-item">
+            <h3>我的数据源</h3>
+            <div class="r-item data-cha" id="data-source">
+                <ul class="r-ul">
+                    <li class="r-add">添加新资源</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 <div class="zoomer" id="zoomer"></div>
@@ -53,8 +71,17 @@
                 <input type="number" placeholder="请输入模板高度,单位为像素">
             </li>
             <li>
-                <span>背景颜色:</span>
-                <input type="color" placeholder="请选择背景颜色">
+                <span>背景图片:</span>
+                <select>
+                    <option value="1.png">1.png</option>
+                    <option value="2.png">2.png</option>
+                    <option value="3.png">3.png</option>
+                    <option value="4.jpg">4.jpg</option>
+                    <option value="5.jpg">5.jpg</option>
+                    <option value="6.jpg">6.jpg</option>
+                    <option value="7.jpg">7.jpg</option>
+                    <option value="8.jpg">8.jpg</option>
+                </select>
             </li>
         </ul>
     </div>
@@ -87,6 +114,26 @@
             <i class="iconfont icon-shanchu" style="line-height: 36px;"></i>
             <span>删除</span>
         </a>
+    </div>
+</li>
+<li class="r-li" id="r-li" style="display: none;">
+    <div class="a-item">
+        <span>名称</span>
+        <input type="text" placeholder="请输入名称">
+    </div>
+    <div class="a-item">
+        <span>描述</span>
+        <input type="text" placeholder="请输入描述">
+    </div>
+    <div class="a-item">
+        <span>地址</span>
+        <input type="text" placeholder="请输入地址">
+    </div>
+    <div class="a-item" style="text-align: center;">
+        <a href="javascript:;" class="a-edit">编辑</a>
+        <a href="javascript:;" class="a-save">保存</a>
+        <a href="javascript:;" class="a-dele">删除</a>
+        <a href="javascript:;" class="a-use">使用</a>
     </div>
 </li>
 <script type="text/javascript" src="../js/list.js"></script>

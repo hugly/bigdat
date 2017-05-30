@@ -54,7 +54,7 @@ html,body{ height: 100%; overflow: hidden; }
   div.r-show{ margin-right: 0;}
   div.has-margin{ margin-right: 300px; }
   .content{ position: relative; margin-right: 0; .trs(); overflow: scroll;
-    .main-content{ width: 1200px; height: 1200px; background-color: #eee; }
+    .main-content{ width: 1200px; height: 1200px; background-color: #eee; position: relative; overflow: hidden; }
   }
   .right-silder{ float: right; width: 399px; border-left: 1px solid #999; margin-right: -400px; .trs();
     .r-title{ height: 39px; border-bottom: 1px solid #ccc;
@@ -98,8 +98,14 @@ html,body{ height: 100%; overflow: hidden; }
         }
       }
     }
-    .save-btn{ width: 100%; height: 40px; line-height: 40px; text-align: center; background-color: #7c82ff; color: #fff; font-size: 14px; cursor: pointer; }
-    .save-btn:hover{ background-color: #90ef7f; color: #333; }
+    .save-btn{ width: 100%; height: 40px; line-height: 40px; text-align: center; font-size: 14px; cursor: pointer; .cf();
+      a{ float: left; width: 50%; height: 40px; color: #fff; }
+      a.a-save-btn{ background-color: #7c82ff; }
+      a.a-save-btn:hover{ background-color: #90ef7f; color: #333; }
+
+      a.a-close-btn{ background-color: #f95656; }
+      a.a-close-btn:hover{ background-color: #bd2c00; }
+    }
   }
 }
 

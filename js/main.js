@@ -1,37 +1,48 @@
 /**
  * Created by hugly on 25/05/2017.
  */
-(function(){
+$(document).ready(function(){
     var constMin = 200;
     var oMain = {
+        index:0,
         currentChartConfig:null,
+        pageChartConfig:{},
         init:function(){
+            var id = commonFun.getUrlParam('id');
             this.bindEvent();
             this.caculateShadow();
             //this.leftSilderAnimateFn();
-            this.getPageTempluginInfoById();
+            if(id != 'undefined'){
+                this.getPageTempluginInfoById();
+            }
         },
         bindEvent:function(){
             var self            = this,
-                index           = 0,
                 _move           = false,
                 //判断是编辑还是新增 0为编辑  1为新增
                 type            = 0,
-                oSaveBtn        = $('.save-btn'),
+                optionsObj      = $('.c-ul .c-item').eq(0),
+                otherOptionsObj = $('.c-ul .c-item').eq(1),
+                oNaver          = $('.naver'),
+                oSaveBtn        = $('.a-save-btn'),
+                oCloseBtn       = $('.a-close-btn'),
                 oDataChange     = $('#data-change'),
                 oContainer      = $('#container'),
                 oMainContent    = $('#main-content'),
                 oDragTem        = $('#drag-temp'),
                 oChartTem       = $('#chart-temp'),
                 oLeftSilder     = $('.left-sidebar'),
-                oRightSilder    = $('.right-silder'),
-                oDataSource     = $('#data-source');
+                oRightSilder    = $('.right-silder');
 
             //操作区域的删除操作
             oMainContent.on('click','.chart-temp .dele-btn',function(){
+                var obj = $(this).next().attr('data-id');
                 $(this).closest('.chart-temp').remove();
                 oContainer.find('.right-silder').removeClass('r-show');
                 oContainer.find('.content').removeClass('has-margin');
+
+                var str = 'cc'+obj;
+                delete self.pageChartConfig[str];
             });
 
             //操作区域的编辑操作
@@ -39,11 +50,22 @@
                 oContainer.find('.right-silder').addClass('r-show');
                 oContainer.find('.content').addClass('has-margin');
                 oContainer.find('.save-btn').attr('data-id',$(this).nextAll('.chart-con').attr('data-id'));
+
                 var data = self.currentChartConfig.series,
-                    obj = $('#data-text');
+                    obj = $('#data-text'),
+                    mainObj = $(this).closest('.chart-temp');
 
-                obj.text(self.objToString(data));
+                optionsObj.find('input').eq(0).val(self.currentChartConfig.title.text);
+                optionsObj.find('input').eq(1).val(self.currentChartConfig.pluginLJH.width);
+                optionsObj.find('input').eq(2).val(self.currentChartConfig.pluginLJH.height);
+                optionsObj.find('input').eq(3).val(self.currentChartConfig.pluginLJH.left);
+                optionsObj.find('input').eq(4).val(self.currentChartConfig.pluginLJH.top);
+                optionsObj.find('input').eq(5).val(self.currentChartConfig.chart.borderWidth);
+                optionsObj.find('input').eq(6).val(self.currentChartConfig.chart.borderColor);
+                optionsObj.find('input').eq(7).val(self.currentChartConfig.chart.backgroundColor);
+                otherOptionsObj.find('#data-change').val(self.currentChartConfig.pluginLJH.dataType);
 
+                obj.val(self.objToString(data));
                 self.getResourceList();
             });
 
@@ -87,7 +109,7 @@
                     $(document).off('mouseup');
                     if(_move){
                         oDragTem.hide();
-                        index ++;
+                        self.index ++;
                         var tem = oChartTem.clone(),
                             oMainX = oMainContent.offset().left,
                             oMainY = oMainContent.offset().top,
@@ -100,28 +122,30 @@
                         if(resX > (oMainX + oMainContent.width()-oChartTem.width())){ temX = oMainContent.width()-oChartTem.width() }
                         if(resY > (oMainY + oMainContent.height()-oChartTem.height())){ temY = oMainContent.height()-oChartTem.height() }
 
-                        // if(resX < oMainX){ return; }
-                        // if(resY < oMainY){ return; }
-                        //
-                        // if(resX > (oMainX + oMainContent.width()-200)){ return; }
-                        // if(resY > (oMainY + oMainContent.height()-200)){ return; }
-
-
                         tem.removeAttr('id').removeAttr('style');
 
                         tem.css({
-                            'z-index': index,
+                            'z-index': self.index,
                             left: temX,
                             top: temY
                         });
                         tem.find('.chart-con').attr({
                             'data-index': chartIndex,
-                            'data-id':index,
-                            'id': 'charts'+index
+                            'data-id':self.index,
+                            'id': 'charts'+self.index
                         });
 
                         oMainContent.append(tem);
-                        self.createChartById(chartIndex,$('#charts'+index));
+                        chartConfig[chartIndex].pluginLJH.left = temX;
+                        chartConfig[chartIndex].pluginLJH.top = temY;
+                        chartConfig[chartIndex].pluginLJH.chartId = chartIndex;
+
+                        optionsObj.find('input').eq(3).val(temX);
+                        optionsObj.find('input').eq(4).val(temY);
+                        var str = 'cc'+self.index;
+                        self.pageChartConfig[str] = chartConfig[chartIndex];
+
+                        self.createChartById(chartIndex,$('#charts'+self.index),'charts'+self.index);
                     }
                     _move = false;
                     return false;
@@ -130,9 +154,11 @@
 
             //在操作区域直接拖拽
             oMainContent.on('mousedown','.chart-temp .chart-con',function(ev){
-                var self = $(this).parent();
-                var disX = ev.pageX - self.offset().left;
-                var disY = ev.pageY - self.offset().top;
+                var _self = $(this).parent();
+                var index = $(this).attr('data-index');
+                var id = $(this).attr('data-id');
+                var disX = ev.pageX - _self.offset().left;
+                var disY = ev.pageY - _self.offset().top;
                 $(document).on('mousemove',this,function(ev){
                     var resX = ev.pageX - disX,
                         resY = ev.pageY - disY,
@@ -144,13 +170,21 @@
                     if(resX < oMainX){ temX = 0; }
                     if(resY < oMainY){ temY = 0; }
 
-                    if(resX > (oMainX + oMainContent.width()-self.width())){ temX = oMainContent.width()-self.width() }
-                    if(resY > (oMainY + oMainContent.height()-self.height())){ temY = oMainContent.height()-self.height() }
+                    if(resX > (oMainX + oMainContent.width()-_self.width())){ temX = oMainContent.width()-_self.width() }
+                    if(resY > (oMainY + oMainContent.height()-_self.height())){ temY = oMainContent.height()-_self.height() }
 
-                    self.css({
+                    _self.css({
                         left: temX,
                         top: temY
                     });
+
+                    chartConfig[index].pluginLJH.left = temX;
+                    chartConfig[index].pluginLJH.top = temY;
+                    chartConfig[index].pluginLJH.chartId = index;
+                    optionsObj.find('input').eq(3).val(temX);
+                    optionsObj.find('input').eq(4).val(temY);
+                    var str = 'cc'+id;
+                    self.pageChartConfig[str] = chartConfig[index];
                 });
                 $(document).on('mouseup',this,function(){
                     $(document).off('mousemove');
@@ -161,6 +195,8 @@
             //在操作区域拉取上边框
             oMainContent.on('mousedown','.chart-temp .top-bar',function(ev){
                 var obj = $(this).parent();
+                var index = obj.find('.chart-con').attr('data-index');
+                var id = obj.find('.chart-con').attr('data-id');
                 var height = obj.height();
                 var top = parseInt(obj.css('top'));
                 var disY = ev.pageY;
@@ -177,6 +213,13 @@
                         height: resH
                     });
                     obj.find('.chart-con').height(resH-10);
+
+                    chartConfig[index].pluginLJH.height = resH;
+                    chartConfig[index].pluginLJH.top = resT;
+                    optionsObj.find('input').eq(2).val(resH);
+                    optionsObj.find('input').eq(4).val(resT);
+                    var str = 'cc'+id;
+                    self.pageChartConfig[str] = chartConfig[index];
                 });
                 $(document).on('mouseup',this,function(){
                     $(document).off('mousemove');
@@ -188,6 +231,8 @@
             //在操作区域拉取右边框
             oMainContent.on('mousedown','.chart-temp .right-bar',function(ev){
                 var obj = $(this).parent();
+                var index = obj.find('.chart-con').attr('data-index');
+                var id = obj.find('.chart-con').attr('data-id');
                 var width = obj.width();
                 var left = parseInt(obj.css('left'));
                 var disX = ev.pageX;
@@ -202,6 +247,10 @@
                         width: resW
                     });
                     obj.find('.chart-con').width(resW-10);
+                    chartConfig[index].pluginLJH.width = resW;
+                    optionsObj.find('input').eq(1).val(resW);
+                    var str = 'cc'+id;
+                    self.pageChartConfig[str] = chartConfig[index];
                 });
                 $(document).on('mouseup',this,function(){
                     $(document).off('mousemove');
@@ -212,6 +261,8 @@
             //在操作区域拉取下边框
             oMainContent.on('mousedown','.chart-temp .bottom-bar',function(ev){
                 var obj = $(this).parent();
+                var index = obj.find('.chart-con').attr('data-index');
+                var id = obj.find('.chart-con').attr('data-id');
                 var height = obj.height();
                 var top = parseInt(obj.css('top'));
                 var disY = ev.pageY;
@@ -226,6 +277,11 @@
                         height: resH
                     });
                     obj.find('.chart-con').height(resH-10);
+
+                    chartConfig[index].pluginLJH.height = resH;
+                    optionsObj.find('input').eq(2).val(resH);
+                    var str = 'cc'+id;
+                    self.pageChartConfig[str] = chartConfig[index];
                 });
                 $(document).on('mouseup',this,function(){
                     $(document).off('mousemove');
@@ -236,6 +292,8 @@
             //在操作区域拉取左边框
             oMainContent.on('mousedown','.chart-temp .left-bar',function(ev){
                 var obj = $(this).parent();
+                var index = obj.find('.chart-con').attr('data-index');
+                var id = obj.find('.chart-con').attr('data-id');
                 var width = obj.width();
                 var left = parseInt(obj.css('left'));
                 var disX = ev.pageX;
@@ -253,64 +311,20 @@
                     });
                     obj.find('.chart-con').width(resW-10);
 
+                    chartConfig[index].pluginLJH.width = resW;
+                    chartConfig[index].pluginLJH.left = resL;
+
+                    optionsObj.find('input').eq(1).val(resW);
+                    optionsObj.find('input').eq(3).val(resL);
+                    var str = 'cc'+id;
+                    self.pageChartConfig[str] = chartConfig[index];
+
                 });
                 $(document).on('mouseup',this,function(){
                     $(document).off('mousemove');
                     $(document).off('mouseup');
                     obj.find('.chart-con').highcharts().reflow();
                 });
-            });
-
-            //数据源的增删改查以及使用
-
-            //add
-            oDataSource.on('click','.r-add',function(){
-                type = 1;
-                var oTem = $('#r-li').clone().removeAttr('style').removeAttr('id');
-
-                oTem.find('span').hide();
-                oTem.find('input').show();
-                oTem.find('.a-edit').hide();
-                oTem.find('.a-save').show();
-
-                oTem.insertBefore($(this));
-            });
-            //modify
-            oDataSource.on('click','.a-edit',function(){
-                var obj = $(this).closest('li');
-
-                type = 0;
-                obj.find('span').hide();
-                obj.find('input').show();
-
-                $(this).hide();
-                obj.find('.a-save').show();
-            });
-            //dele
-            oDataSource.on('click','.a-dele',function(){
-                var obj = $(this).closest('.r-li');
-
-                self.deleResourceItem(obj,obj.attr('data-id'));
-            });
-            //save
-            oDataSource.on('click','.a-save',function(){
-                var obj = $(this).closest('.r-li'),
-                    id = obj.attr('data-id'),
-                    name = obj.find('input').eq(0).val(),
-                    desc = obj.find('input').eq(1).val(),
-                    apiUrl = obj.find('input').eq(2).val();
-
-                if(type == 0){
-                    self.editResourceItemById(obj,id,name,desc,apiUrl);
-                }else if(type == 1){
-                    self.insertResourceItem(obj,name,desc,apiUrl);
-                }
-            });
-            //use
-            oDataSource.on('click','.a-use',function(){
-                var obj = $(this).closest('.r-li');
-
-                self.useResourceData(obj.find('input').eq(2).val());
             });
 
             //选择数据源类型
@@ -320,18 +334,68 @@
                 objs.eq($(this).val()).show();
             });
 
+            oCloseBtn.on('click',this,function(){
+                oContainer.find('.right-silder').removeClass('r-show');
+                oContainer.find('.content').removeClass('has-margin');
+            });
+
             //保存插件配置
             oSaveBtn.on('click',this,function(){
                 var oDataList =  $('#data-text'),
-                    dataid = $(this).attr('data-id'),
+                    dataid = $(this).parent().attr('data-id'),
+                    mainObj = $('#charts'+dataid),
+                    parentObj = mainObj.closest('.chart-temp'),
+                    optionsObj = $('.c-ul .c-item').eq(0),
                     valList = oDataList.val().split('\n').join('').split('\t').join('');
 
+
+                parentObj.width(optionsObj.find('input').eq(1).val());
+                parentObj.height(optionsObj.find('input').eq(2).val());
+                mainObj.width(optionsObj.find('input').eq(1).val()-10);
+                mainObj.height(optionsObj.find('input').eq(2).val()-10);
+
+                parentObj.css('left',optionsObj.find('input').eq(3).val()+'px');
+                parentObj.css('top',optionsObj.find('input').eq(4).val()+'px');
+
+                self.currentChartConfig.title.text = optionsObj.find('input').eq(0).val();
+                self.currentChartConfig.pluginLJH.width = optionsObj.find('input').eq(1).val();
+                self.currentChartConfig.pluginLJH.height=optionsObj.find('input').eq(2).val();
+                self.currentChartConfig.pluginLJH.left = optionsObj.find('input').eq(3).val();
+                self.currentChartConfig.pluginLJH.top = optionsObj.find('input').eq(4).val();
+                self.currentChartConfig.chart.borderColor = optionsObj.find('input').eq(6).val()+'px';
+                self.currentChartConfig.chart.borderWidth = parseInt(optionsObj.find('input').eq(5).val());
+                self.currentChartConfig.chart.backgroundColor = optionsObj.find('input').eq(7).val();
+
                 self.currentChartConfig.series = eval(valList);
-                console.log(self.currentChartConfig);
-                console.log($('#charts'+dataid));
-                $('#charts'+dataid).highcharts(self.currentChartConfig);
+
+                var str = 'cc'+dataid;
+                self.pageChartConfig[str] = self.currentChartConfig;
+                mainObj.highcharts(self.currentChartConfig);
             });
 
+            //保存页面数据
+            oNaver.on('click','.page-save',function(){
+                self.savePageSetting();
+
+            });
+            //预览
+            oNaver.on('click','.page-preview',function(){
+                var id = commonFun.getUrlParam('id'),
+                    name = commonFun.getUrlParam('name'),
+                    width = commonFun.getUrlParam('width'),
+                    height = commonFun.getUrlParam('height'),
+                    color = commonFun.getUrlParam('img');
+                window.location.href = 'preview.html?name='+name+'&id='+id+'&width='+width+'&height='+height+'&img='+color
+            });
+            //发布
+            oNaver.on('click','.page-publish',function(){
+                // $.message({
+                //     type: "success",
+                //     skin: 0,
+                //     str: '发布成功'
+                // });
+                self.publishPage();
+            });
         },
         objToString:function (obj, ndeep) {
             var self = this;
@@ -367,10 +431,10 @@
                     return '{['[+isArray] + Object.keys(obj).map(function(key){
                             if(isNaN(parseInt(key))){
                                 if(indent)
-                                return indent + key + ': ' + self.objToNormalString(obj[key], (ndeep||0));
+                                    return indent + key + ': ' + self.objToNormalString(obj[key], (ndeep||0));
                             }else{
                                 if(indent)
-                                return indent + self.objToNormalString(obj[key], (ndeep||0));
+                                    return indent + self.objToNormalString(obj[key], (ndeep||0));
                             }
                         }).join(',') + indent + '}]'[+isArray];
 
@@ -386,7 +450,7 @@
             $('#main-content').css({
                 width:conWidth,
                 height:conHeight,
-                'background-color':decodeURIComponent(conColor)
+                'background-image':'url("../images/1.png")'
             });
 
             $('#container,.content,.right-silder').css({
@@ -413,13 +477,13 @@
             });
         },
         //根据索引和图表元素生成图表
-        createChartById:function(index,obj){
+        createChartById:function(index,obj,name){
             this.currentChartConfig = chartConfig[index];
-
             obj.highcharts(this.currentChartConfig);
         },
         //获取页面的临时插件
         getPageTempluginInfoById:function(){
+            var self = this;
             AJAX.ajax({
                 url:'api/ModulePage/GetTempPlugsById',
                 type:'get',
@@ -427,11 +491,36 @@
                     id:commonFun.getUrlParam('id')
                 },
                 callback:function(rs){
-                    console.log(rs);
+                    var oMainContent    = $('#main-content'),
+                        oChartTem       = $('#chart-temp');
+
+                    self.index = rs.Plugs.length;
+                    for(var i=0,j=rs.Plugs.length;i<j;i++){
+                        var oTar = oChartTem.clone().removeAttr('style').removeAttr('id');
+
+                        oTar.css({
+                            'z-index': i,
+                            left: rs.Plugs[i].Left+'px',
+                            top: rs.Plugs[i].Right+'px',
+                            width:rs.Plugs[i].Width,
+                            height:rs.Plugs[i].Height
+                        });
+                        oTar.find('.chart-con').attr({
+                            'data-index': rs.Plugs[i].Position,
+                            'data-id':i,
+                            'id': 'charts'+i
+                        }).css({
+                            width:rs.Plugs[i].Width-10,
+                            height:rs.Plugs[i].Height-10
+                        });
+                        oMainContent.append(oTar);
+                        var str = 'cc'+i;
+                        self.pageChartConfig[str] = chartConfig[rs.Plugs[i].Position];
+                        self.createChartById(rs.Plugs[i].Position,$('#charts'+i),'charts'+i);
+                    }
                 }
             });
         },
-        //资源配置相关请求
         //1.获取资源列表
         getResourceList:function(){
             AJAX.ajax({
@@ -440,110 +529,9 @@
                 callback:function(rs){
                     if(rs.length == 0) return;
                     for(var i=0,j=rs.length;i<j;i++){
-                        var oTem = $('#r-li').clone().removeAttr('style').removeAttr('id');
-
-                        oTem.attr({
-                            'data-id':rs[i].Id
-                        });
-                        oTem.find('.a-item span').eq(0).text(rs[i].Name);
-                        oTem.find('.a-item span').eq(0).attr('title',rs[i].Name);
-                        oTem.find('.a-item input').eq(0).val(rs[i].Name);
-
-                        oTem.find('.a-item span').eq(1).text(rs[i].Desc);
-                        oTem.find('.a-item span').eq(1).attr('title',rs[i].Desc);
-                        oTem.find('.a-item input').eq(1).val(rs[i].Desc);
-
-                        oTem.find('.a-item span').eq(2).text(rs[i].ApiUrl);
-                        oTem.find('.a-item span').eq(2).attr('title',rs[i].ApiUrl);
-                        oTem.find('.a-item input').eq(2).val(rs[i].ApiUrl);
-
-                        oTem.insertBefore($('.r-add'));
+                        var obj = $('#data-source');
+                        obj.append($('<option data-url="'+rs[i].ApiUrl+'" value="'+rs[i].Name+'">'+rs[i].Name+'</option>'));
                     }
-                }
-            });
-        },
-        //2.获取单个资源详情
-        getResourceDetailById:function(id){
-            AJAX.ajax({
-                url:'api/APiDataSource/GetById',
-                type:'get',
-                data:{
-                    id:id
-                },
-                callback:function(rs){
-                    console.log(rs);
-                }
-            });
-        },
-        //3.插入单个资源
-        insertResourceItem:function(obj,name,desc,apiUrl){
-            AJAX.ajax({
-                url:'api/APiDataSource/Insert',
-                type:'post',
-                data:{
-                    Name:name,
-                    Desc:desc,
-                    ApiUrl:apiUrl,
-                },
-                callback:function(rs){
-                    $.message({
-                        type: "success",
-                        skin: 0,
-                        str: '操作成功',
-                        subCallback:function(){
-                            obj.find('span').show();
-                            obj.find('input').hide();
-                            obj.find('.a-edit').show();
-                            obj.find('.a-save').hide();
-                        }
-                    });
-                }
-            });
-        },
-        //4.删除单个资源
-        deleResourceItem:function(obj,id){
-            AJAX.ajax({
-                url:'api/APiDataSource/Delete',
-                type:'delete',
-                "Content-Type": "application/json",
-                data:{
-                    id:id
-                },
-                callback:function(rs){
-                    $.message({
-                        type: "success",
-                        skin: 0,
-                        str: '操作成功',
-                        subCallback:function(){
-                            obj.remove();
-                        }
-                    });
-                }
-            });
-        },
-        //5.编辑单个资源
-        editResourceItemById:function(obj,id,name,desc,apiUrl){
-            AJAX.ajax({
-                url:'api/APiDataSource/Edit',
-                type:'post',
-                data:{
-                    Id:id,
-                    Name:name,
-                    Desc:desc,
-                    ApiUrl:apiUrl,
-                },
-                callback:function(rs){
-                    $.message({
-                        type: "success",
-                        skin: 0,
-                        str: '操作成功',
-                        subCallback:function(){
-                            obj.find('span').show();
-                            obj.find('input').hide();
-                            obj.find('.a-edit').show();
-                            obj.find('.a-save').hide();
-                        }
-                    });
                 }
             });
         },
@@ -601,11 +589,71 @@
         },
         //保存页面配置
         savePageSetting:function(){
+            var data = {
+                ID:commonFun.getUrlParam('id') == 'undefined'?'':commonFun.getUrlParam('id'),
+                BackImage:commonFun.getUrlParam('img'),
+                Width:commonFun.getUrlParam('width'),
+                Height:commonFun.getUrlParam('height'),
+                Name:commonFun.getUrlParam('name'),
+                Plugs:[]
+            };
 
+            for(var name in this.pageChartConfig){
+                var json = {},
+                    obj = this.pageChartConfig[name];
+
+                json.PageID = commonFun.getUrlParam('id');
+                json.Width = obj.pluginLJH.width;
+                json.Height = obj.pluginLJH.height;
+                json.BackColor = obj.pluginLJH.backgroundColor;
+                json.FontSize = obj.chart.borderWidth;
+                json.FontColor = obj.chart.borderColor;
+                json.DataType = '0';
+                json.Content = obj.series;
+                json.Left = obj.pluginLJH.left;
+                json.Right = obj.pluginLJH.top;
+                json.Position = obj.pluginLJH.chartId;
+                json.Align = obj.title.text;
+
+                data.Plugs.push(json);
+            }
+
+            AJAX.ajax({
+                url:'api/ModulePage/Save',
+                type: 'post',
+                data:data,
+                callback:function(rs){
+                    $.message({
+                        type: "success",
+                        skin: 0,
+                        str: '保存成功',
+                        subCallback:function(){
+                            window.location.href = '../html/list.html';
+                        }
+                    });
+                }
+            })
+        },
+        //发布页面
+        publishPage:function(){
+            AJAX.ajax({
+                url:'api/ModulePage/Publish',
+                type: 'post',
+                data:{
+                    pageID:commonFun.getUrlParam('id')
+                },
+                callback:function(rs){
+                    $.message({
+                        type: "success",
+                        skin: 0,
+                        str: '发布成功'
+                    });
+                }
+            })
         }
-
     };
 
     oMain.init();
-})();
+
+});
 

@@ -14,7 +14,7 @@
     <!--<script src="https://cdn.hcharts.cn/highmaps/highmaps.js"></script>-->
 </head>
 <body>
-<div class="naver">
+<div class="naver" id="naver">
     <div class="back">
         <i class="iconfont icon-fanhui1"></i>
         <span>取消创建</span>
@@ -80,51 +80,63 @@
                     <li data-index="39"><em style="background-image: url('../images/68.svg')"></em><a href="javascript:;">标题居中的环形图</a></li>
                 </ul>
             </li>
+            <!--<li>-->
+                <!--<div><icon class="iconfont icon-scatter-chart"></icon><span>散点图及气泡图</span></div>-->
+                <!--<ul class="nav-sidebar">-->
+                    <!--<li data-index="40"><em style="background-image: url('../images/51.svg')"></em><a href="javascript:;">散点图</a></li>-->
+                    <!--<li data-index="41"><em style="background-image: url('../images/52.svg')"></em><a href="javascript:;">气泡图</a></li>-->
+                    <!--<li data-index="42"><em style="background-image: url('../images/53.svg')"></em><a href="javascript:;">3D气泡图</a></li>-->
+                    <!--<li data-index="43"><em style="background-image: url('../images/54.svg')"></em><a href="javascript:;">带辅助线的气泡图</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<div><icon class="iconfont icon-hunhetu"></icon><span>混合图</span></div>-->
+                <!--<ul class="nav-sidebar">-->
+                    <!--<li data-index="44"><em style="background-image: url('../images/71.svg')"></em><a href="javascript:;">多个图表共用一个提示框</a></li>-->
+                    <!--<li data-index="45"><em style="background-image: url('../images/72.svg')"></em><a href="javascript:;">柱形图、饼图、折线图混合</a></li>-->
+                    <!--<li data-index="46"><em style="background-image: url('../images/73.svg')"></em><a href="javascript:;">双坐标的折线图、柱状图混合图</a></li>-->
+                    <!--<li data-index="47"><em style="background-image: url('../images/74.svg')"></em><a href="javascript:;">多坐标轴混合图</a></li>-->
+                    <!--<li data-index="48"><em style="background-image: url('../images/75.svg')"></em><a href="javascript:;">包含趋势线的散点图</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<div><icon class="iconfont icon-3d"></icon><span>3D 图</span></div>-->
+                <!--<ul class="nav-sidebar">-->
+                    <!--<li data-index="49"><em style="background-image: url('../images/81.jpg')"></em><a href="javascript:;">交互性3D柱状图</a></li>-->
+                    <!--<li data-index="50"><em style="background-image: url('../images/82.jpg')"></em><a href="javascript:;">包含空值的3D柱状图</a></li>-->
+                    <!--<li data-index="51"><em style="background-image: url('../images/83.jpg')"></em><a href="javascript:;">堆叠3D柱状图</a></li>-->
+                    <!--<li data-index="52"><em style="background-image: url('../images/84.jpg')"></em><a href="javascript:;">3D饼图</a></li>-->
+                    <!--<li data-index="53"><em style="background-image: url('../images/85.jpg')"></em><a href="javascript:;">3D环形图</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<div><icon class="iconfont icon-configure"></icon><span>仪表图</span></div>-->
+                <!--<ul class="nav-sidebar">-->
+                    <!--<li data-index="54"><em style="background-image: url('../images/91.jpg')"></em><a href="javascript:;">速度仪</a></li>-->
+                    <!--<li data-index="55"><em style="background-image: url('../images/92.jpg')"></em><a href="javascript:;">仪表盘</a></li>-->
+                    <!--<li data-index="56"><em style="background-image: url('../images/93.jpg')"></em><a href="javascript:;">活动图</a></li>-->
+                    <!--<li data-index="57"><em style="background-image: url('../images/94.jpg')"></em><a href="javascript:;">时钟</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<div><icon class="iconfont icon-ditu" style="font-size: 28px;"></icon><span>地图</span></div>-->
+                <!--<ul class="nav-sidebar">-->
+                    <!--<li data-index="58"><em style="background-image: url('../images/101.jpg'); background-position: center; background-repeat: no-repeat;"></em><a href="javascript:;">中国地图</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
             <li>
-                <div><icon class="iconfont icon-scatter-chart"></icon><span>散点图及气泡图</span></div>
+                <div><icon class="iconfont icon-fuzhuyuansu"></icon><span>辅助插件</span></div>
                 <ul class="nav-sidebar">
-                    <li data-index="40"><em style="background-image: url('../images/51.svg')"></em><a href="javascript:;">散点图</a></li>
-                    <li data-index="41"><em style="background-image: url('../images/52.svg')"></em><a href="javascript:;">气泡图</a></li>
-                    <li data-index="42"><em style="background-image: url('../images/53.svg')"></em><a href="javascript:;">3D气泡图</a></li>
-                    <li data-index="43"><em style="background-image: url('../images/54.svg')"></em><a href="javascript:;">带辅助线的气泡图</a></li>
-                </ul>
-            </li>
-            <li>
-                <div><icon class="iconfont icon-hunhetu"></icon><span>混合图</span></div>
-                <ul class="nav-sidebar">
-                    <li data-index="44"><em style="background-image: url('../images/71.svg')"></em><a href="javascript:;">多个图表共用一个提示框</a></li>
-                    <li data-index="45"><em style="background-image: url('../images/72.svg')"></em><a href="javascript:;">柱形图、饼图、折线图混合</a></li>
-                    <li data-index="46"><em style="background-image: url('../images/73.svg')"></em><a href="javascript:;">双坐标的折线图、柱状图混合图</a></li>
-                    <li data-index="47"><em style="background-image: url('../images/74.svg')"></em><a href="javascript:;">多坐标轴混合图</a></li>
-                    <li data-index="48"><em style="background-image: url('../images/75.svg')"></em><a href="javascript:;">包含趋势线的散点图</a></li>
-                </ul>
-            </li>
-            <li>
-                <div><icon class="iconfont icon-3d"></icon><span>3D 图</span></div>
-                <ul class="nav-sidebar">
-                    <li data-index="49"><em style="background-image: url('../images/81.jpg')"></em><a href="javascript:;">交互性3D柱状图</a></li>
-                    <li data-index="50"><em style="background-image: url('../images/82.jpg')"></em><a href="javascript:;">包含空值的3D柱状图</a></li>
-                    <li data-index="51"><em style="background-image: url('../images/83.jpg')"></em><a href="javascript:;">堆叠3D柱状图</a></li>
-                    <li data-index="52"><em style="background-image: url('../images/84.jpg')"></em><a href="javascript:;">3D饼图</a></li>
-                    <li data-index="53"><em style="background-image: url('../images/85.jpg')"></em><a href="javascript:;">3D环形图</a></li>
-                </ul>
-            </li>
-            <li>
-                <div><icon class="iconfont icon-configure"></icon><span>仪表图</span></div>
-                <ul class="nav-sidebar">
-                    <li data-index="54"><em style="background-image: url('../images/91.jpg')"></em><a href="javascript:;">速度仪</a></li>
-                    <li data-index="55"><em style="background-image: url('../images/92.jpg')"></em><a href="javascript:;">仪表盘</a></li>
-                    <li data-index="56"><em style="background-image: url('../images/93.jpg')"></em><a href="javascript:;">活动图</a></li>
-                    <li data-index="57"><em style="background-image: url('../images/94.jpg')"></em><a href="javascript:;">时钟</a></li>
+                    <li data-index="60"><em style="background-image: url('../images/103.jpg'); background-position: center; background-repeat: no-repeat;"></em><a href="javascript:;">文字</a></li>
                 </ul>
             </li>
         </ul>
     </div>
     <div class="oper">
         <ul>
-            <li><a href="javascript:;"><i class="iconfont icon-baocun"></i><span>保存</span></a></li>
-            <li><a href="javascript:;"><i class="iconfont icon-yulan" style="font-size: 20px;"></i><span>预览</span></a></li>
-            <li><a href="javascript:;"><i class="iconfont icon-fabu" style="line-height: 65px;"></i><span>发布</span></a></li>
+            <li class="page-save"><a href="javascript:;"><i class="iconfont icon-baocun"></i><span>保存</span></a></li>
+            <li class="page-preview"><a href="javascript:;"><i class="iconfont icon-yulan" style="font-size: 20px;"></i><span>预览</span></a></li>
+            <li class="page-publish"><a href="javascript:;"><i class="iconfont icon-fabu" style="line-height: 65px;"></i><span>发布</span></a></li>
         </ul>
     </div>
 </div>
@@ -142,49 +154,49 @@
                     <div class="r-item">
                         <span>插件标题</span>
                         <div class="r-part">
-                            <input type="text">
-                        </div>
-                    </div>
-                    <div class="r-item">
-                        <span>长度</span>
-                        <div class="r-part">
-                            <input type="number">
+                            <input type="text" placeholder="请输入插件标题">
                         </div>
                     </div>
                     <div class="r-item">
                         <span>宽度</span>
                         <div class="r-part">
-                            <input type="number">
+                            <input type="number" placeholder="请输入插件宽度">
+                        </div>
+                    </div>
+                    <div class="r-item">
+                        <span>高度</span>
+                        <div class="r-part">
+                            <input type="number" placeholder="请输入插件高度">
                         </div>
                     </div>
                     <div class="r-item">
                         <span>左侧</span>
                         <div class="r-part">
-                            <input type="number">
+                            <input type="number" placeholder="请输入插件距最左边的值">
                         </div>
                     </div>
                     <div class="r-item">
                         <span>顶部</span>
                         <div class="r-part">
-                            <input type="number">
+                            <input type="number" placeholder="请输入插件距顶部的值">
                         </div>
                     </div>
                     <div class="r-item">
                         <span>字体大小</span>
                         <div class="r-part">
-                            <input type="number">
+                            <input type="number" placeholder="请输入插件字体大小">
                         </div>
                     </div>
                     <div class="r-item">
                         <span>字体颜色</span>
                         <div class="r-part">
-                            <input type="color">
+                            <input type="color" placeholder="请选择插件字体颜色">
                         </div>
                     </div>
                     <div class="r-item">
                         <span>背景颜色</span>
                         <div class="r-part">
-                            <input type="color">
+                            <input type="color" placeholder="请选择插件字体颜色">
                         </div>
                     </div>
                 </li>
@@ -194,7 +206,7 @@
                         <div class="r-part">
                             <select id="data-change">
                                 <option value="0">静态数据</option>
-                                <option value="1">数据源</option>
+                                <!--<option value="1">数据源</option>-->
                             </select>
                         </div>
                     </div>
@@ -203,41 +215,26 @@
                             <textarea placeholder="请输入静态数据。格式为数据，请仔细核对数据格式。" id="data-text"></textarea>
                         </div>
                     </div>
-                    <div class="r-item data-cha" id="data-source" style="display: none;">
-                        <ul class="r-ul">
-                            <li class="r-add">添加新资源</li>
-                        </ul>
-                    </div>
+                    <!--<div class="r-item">-->
+                        <!--<span>请选择数据源</span>-->
+                        <!--<div class="r-part">-->
+                            <!--<select id="data-source"></select>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </li>
             </ul>
         </div>
-        <div class="save-btn">保存</div>
+        <div class="save-btn">
+            <a href="javascript:;" class="a-save-btn">保存</a>
+            <a href="javascript:;" class="a-close-btn">关闭</a>
+        </div>
     </div>
     <div class="content">
         <div class="main-content" id="main-content"></div>
     </div>
 </div>
 <div id="drag-temp"></div>
-<li class="r-li" id="r-li" style="display: none;">
-    <div class="a-item">
-        <span>名称</span>
-        <input type="text" placeholder="请输入名称">
-    </div>
-    <div class="a-item">
-        <span>描述</span>
-        <input type="text" placeholder="请输入描述">
-    </div>
-    <div class="a-item">
-        <span>地址</span>
-        <input type="text" placeholder="请输入地址">
-    </div>
-    <div class="a-item" style="text-align: center;">
-        <a href="javascript:;" class="a-edit">编辑</a>
-        <a href="javascript:;" class="a-save">保存</a>
-        <a href="javascript:;" class="a-dele">删除</a>
-        <a href="javascript:;" class="a-use">使用</a>
-    </div>
-</li>
+
 <div id="chart-temp" class="chart-temp" style="display: none;">
     <div class="bar top-bar"></div>
     <div class="bar right-bar"></div>
