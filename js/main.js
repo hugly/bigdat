@@ -15,6 +15,10 @@
             var self            = this,
                 index           = 0,
                 _move           = false,
+                //判断是编辑还是新增 0为编辑  1为新增
+                type            = 0,
+                oSaveBtn        = $('.save-btn'),
+                oDataChange     = $('#data-change'),
                 oContainer      = $('#container'),
                 oMainContent    = $('#main-content'),
                 oDragTem        = $('#drag-temp'),
@@ -32,9 +36,15 @@
 
             //操作区域的编辑操作
             oMainContent.on('click','.chart-temp .edit-btn',function(){
-
                 oContainer.find('.right-silder').addClass('r-show');
                 oContainer.find('.content').addClass('has-margin');
+                oContainer.find('.save-btn').attr('data-id',$(this).nextAll('.chart-con').attr('data-id'));
+                var data = self.currentChartConfig.series,
+                    obj = $('#data-text');
+
+                obj.text(self.objToString(data));
+
+                self.getResourceList();
             });
 
             //右侧菜单切换功能
@@ -106,6 +116,7 @@
                         });
                         tem.find('.chart-con').attr({
                             'data-index': chartIndex,
+                            'data-id':index,
                             'id': 'charts'+index
                         });
 
@@ -250,16 +261,25 @@
                 });
             });
 
-            //数据源的增删改查
+            //数据源的增删改查以及使用
 
             //add
             oDataSource.on('click','.r-add',function(){
-                
+                type = 1;
+                var oTem = $('#r-li').clone().removeAttr('style').removeAttr('id');
+
+                oTem.find('span').hide();
+                oTem.find('input').show();
+                oTem.find('.a-edit').hide();
+                oTem.find('.a-save').show();
+
+                oTem.insertBefore($(this));
             });
             //modify
             oDataSource.on('click','.a-edit',function(){
                 var obj = $(this).closest('li');
 
+                type = 0;
                 obj.find('span').hide();
                 obj.find('input').show();
 
@@ -268,13 +288,94 @@
             });
             //dele
             oDataSource.on('click','.a-dele',function(){
+                var obj = $(this).closest('.r-li');
 
+                self.deleResourceItem(obj,obj.attr('data-id'));
             });
             //save
             oDataSource.on('click','.a-save',function(){
+                var obj = $(this).closest('.r-li'),
+                    id = obj.attr('data-id'),
+                    name = obj.find('input').eq(0).val(),
+                    desc = obj.find('input').eq(1).val(),
+                    apiUrl = obj.find('input').eq(2).val();
 
+                if(type == 0){
+                    self.editResourceItemById(obj,id,name,desc,apiUrl);
+                }else if(type == 1){
+                    self.insertResourceItem(obj,name,desc,apiUrl);
+                }
+            });
+            //use
+            oDataSource.on('click','.a-use',function(){
+                var obj = $(this).closest('.r-li');
+
+                self.useResourceData(obj.find('input').eq(2).val());
             });
 
+            //选择数据源类型
+            oDataChange.on('change',this,function () {
+                var objs = $('.data-cha');
+                objs.hide();
+                objs.eq($(this).val()).show();
+            });
+
+            //保存插件配置
+            oSaveBtn.on('click',this,function(){
+                var oDataList =  $('#data-text'),
+                    dataid = $(this).attr('data-id'),
+                    valList = oDataList.val().split('\n').join('').split('\t').join('');
+
+                self.currentChartConfig.series = eval(valList);
+                console.log(self.currentChartConfig);
+                console.log($('#charts'+dataid));
+                $('#charts'+dataid).highcharts(self.currentChartConfig);
+            });
+
+        },
+        objToString:function (obj, ndeep) {
+            var self = this;
+            if(obj == null){ return String(obj); }
+            switch(typeof obj){
+                case "string": return '"'+obj+'"';
+                case "function": return obj.name || obj.toString();
+                case "object":
+                    var indent = Array(ndeep||1).join('\t'),
+                        isArray = Array.isArray(obj);
+
+                    return '{['[+isArray] + Object.keys(obj).map(function(key){
+                            if(isNaN(parseInt(key))){
+                                return '\n\t' + indent + key + ': ' + self.objToString(obj[key], (ndeep||1)+1);
+                            }else{
+                                return '\n\t' + indent + self.objToString(obj[key], (ndeep||1)+1);
+                            }
+                        }).join(',') + '\n' + indent + '}]'[+isArray];
+
+                default: return obj.toString();
+            }
+        },
+        objToNormalString:function (obj, ndeep) {
+            var self = this;
+            if(obj == null){ return String(obj); }
+            switch(typeof obj){
+                case "string": return '"'+obj+'"';
+                case "function": return obj.name || obj.toString();
+                case "object":
+                    var indent = Array(ndeep||0),
+                        isArray = Array.isArray(obj);
+
+                    return '{['[+isArray] + Object.keys(obj).map(function(key){
+                            if(isNaN(parseInt(key))){
+                                if(indent)
+                                return indent + key + ': ' + self.objToNormalString(obj[key], (ndeep||0));
+                            }else{
+                                if(indent)
+                                return indent + self.objToNormalString(obj[key], (ndeep||0));
+                            }
+                        }).join(',') + indent + '}]'[+isArray];
+
+                default: return obj.toString();
+            }
         },
         caculateShadow:function(){
             var height = $(window).height(),
@@ -328,7 +429,175 @@
                 callback:function(rs){
                     console.log(rs);
                 }
-            })
+            });
+        },
+        //资源配置相关请求
+        //1.获取资源列表
+        getResourceList:function(){
+            AJAX.ajax({
+                url:'api/APiDataSource/GetAll',
+                type:'get',
+                callback:function(rs){
+                    if(rs.length == 0) return;
+                    for(var i=0,j=rs.length;i<j;i++){
+                        var oTem = $('#r-li').clone().removeAttr('style').removeAttr('id');
+
+                        oTem.attr({
+                            'data-id':rs[i].Id
+                        });
+                        oTem.find('.a-item span').eq(0).text(rs[i].Name);
+                        oTem.find('.a-item span').eq(0).attr('title',rs[i].Name);
+                        oTem.find('.a-item input').eq(0).val(rs[i].Name);
+
+                        oTem.find('.a-item span').eq(1).text(rs[i].Desc);
+                        oTem.find('.a-item span').eq(1).attr('title',rs[i].Desc);
+                        oTem.find('.a-item input').eq(1).val(rs[i].Desc);
+
+                        oTem.find('.a-item span').eq(2).text(rs[i].ApiUrl);
+                        oTem.find('.a-item span').eq(2).attr('title',rs[i].ApiUrl);
+                        oTem.find('.a-item input').eq(2).val(rs[i].ApiUrl);
+
+                        oTem.insertBefore($('.r-add'));
+                    }
+                }
+            });
+        },
+        //2.获取单个资源详情
+        getResourceDetailById:function(id){
+            AJAX.ajax({
+                url:'api/APiDataSource/GetById',
+                type:'get',
+                data:{
+                    id:id
+                },
+                callback:function(rs){
+                    console.log(rs);
+                }
+            });
+        },
+        //3.插入单个资源
+        insertResourceItem:function(obj,name,desc,apiUrl){
+            AJAX.ajax({
+                url:'api/APiDataSource/Insert',
+                type:'post',
+                data:{
+                    Name:name,
+                    Desc:desc,
+                    ApiUrl:apiUrl,
+                },
+                callback:function(rs){
+                    $.message({
+                        type: "success",
+                        skin: 0,
+                        str: '操作成功',
+                        subCallback:function(){
+                            obj.find('span').show();
+                            obj.find('input').hide();
+                            obj.find('.a-edit').show();
+                            obj.find('.a-save').hide();
+                        }
+                    });
+                }
+            });
+        },
+        //4.删除单个资源
+        deleResourceItem:function(obj,id){
+            AJAX.ajax({
+                url:'api/APiDataSource/Delete',
+                type:'delete',
+                "Content-Type": "application/json",
+                data:{
+                    id:id
+                },
+                callback:function(rs){
+                    $.message({
+                        type: "success",
+                        skin: 0,
+                        str: '操作成功',
+                        subCallback:function(){
+                            obj.remove();
+                        }
+                    });
+                }
+            });
+        },
+        //5.编辑单个资源
+        editResourceItemById:function(obj,id,name,desc,apiUrl){
+            AJAX.ajax({
+                url:'api/APiDataSource/Edit',
+                type:'post',
+                data:{
+                    Id:id,
+                    Name:name,
+                    Desc:desc,
+                    ApiUrl:apiUrl,
+                },
+                callback:function(rs){
+                    $.message({
+                        type: "success",
+                        skin: 0,
+                        str: '操作成功',
+                        subCallback:function(){
+                            obj.find('span').show();
+                            obj.find('input').hide();
+                            obj.find('.a-edit').show();
+                            obj.find('.a-save').hide();
+                        }
+                    });
+                }
+            });
+        },
+        //6.使用资源数据
+        useResourceData:function(url){
+            $.ajax({
+                url:url,
+                type:'get',
+                success:function(rs){
+                    var state = rs.Success;
+                    if(state) {
+                        //成功
+                        var result = rs.Data || [];
+
+                        if(!$.isArray(rs)){
+                            $.message({
+                                type: "success",
+                                skin: 0,
+                                str: '返回数据格式错误，请使用json数据格式！',
+                            });
+                        }
+                    }else{
+                        //失败
+                        var code=rs.Code,
+                            msg = rs.Msg,
+                            str="";
+                        str="错误代码："+code+"错误信息："+msg;
+
+                        $.message({
+                            type: "info",
+                            skin: 0,
+                            str: msg
+                        });
+                    }
+
+                },
+                error:function(e){
+                    $.loadHide();
+                    var state = e.status,
+                        msg = "";
+
+                    if(state == "404" || state == "500"){
+                        msg = "服务器繁忙,请稍后在试!";
+                    }else{
+                        msg = "无法连接服务器";
+                    }
+
+                    $.message({
+                        type: "info",
+                        skin: 0,
+                        str: msg
+                    });
+                }
+            });
         },
         //保存页面配置
         savePageSetting:function(){

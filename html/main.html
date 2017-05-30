@@ -138,7 +138,7 @@
         </div>
         <div class="r-container" id="r-container">
             <ul class="c-ul">
-                <li class="c-item">
+                <li class="c-item" style="display: block;">
                     <div class="r-item">
                         <span>插件标题</span>
                         <div class="r-part">
@@ -188,42 +188,23 @@
                         </div>
                     </div>
                 </li>
-                <li class="c-item" style="display: block;">
-                    <div class="r-item">
+                <li class="c-item">
+                    <div class="r-item ">
                         <span>数据</span>
                         <div class="r-part">
-                            <select>
-                                <option>静态数据</option>
-                                <option>数据源</option>
+                            <select id="data-change">
+                                <option value="0">静态数据</option>
+                                <option value="1">数据源</option>
                             </select>
                         </div>
                     </div>
-                    <div class="r-item">
+                    <div class="r-item data-cha">
                         <div class="r-part spec">
-                            <textarea placeholder="请输入静态数据。格式为数据，请仔细核对数据格式。"></textarea>
+                            <textarea placeholder="请输入静态数据。格式为数据，请仔细核对数据格式。" id="data-text"></textarea>
                         </div>
                     </div>
-                    <div class="r-item" id="data-source">
+                    <div class="r-item data-cha" id="data-source" style="display: none;">
                         <ul class="r-ul">
-                            <li class="r-li">
-                                <div class="a-item">
-                                    <span>名称</span>
-                                    <input type="text" placeholder="请输入名称">
-                                </div>
-                                <div class="a-item">
-                                    <span>描述</span>
-                                    <input type="text" placeholder="请输入描述">
-                                </div>
-                                <div class="a-item">
-                                    <span>地址</span>
-                                    <input type="text" placeholder="请输入地址">
-                                </div>
-                                <div class="a-item" style="text-align: center;">
-                                    <a href="javascript:;" class="a-edit">编辑</a>
-                                    <a href="javascript:;" class="a-save">保存</a>
-                                    <a href="javascript:;" class="a-dele">删除</a>
-                                </div>
-                            </li>
                             <li class="r-add">添加新资源</li>
                         </ul>
                     </div>
@@ -237,6 +218,26 @@
     </div>
 </div>
 <div id="drag-temp"></div>
+<li class="r-li" id="r-li" style="display: none;">
+    <div class="a-item">
+        <span>名称</span>
+        <input type="text" placeholder="请输入名称">
+    </div>
+    <div class="a-item">
+        <span>描述</span>
+        <input type="text" placeholder="请输入描述">
+    </div>
+    <div class="a-item">
+        <span>地址</span>
+        <input type="text" placeholder="请输入地址">
+    </div>
+    <div class="a-item" style="text-align: center;">
+        <a href="javascript:;" class="a-edit">编辑</a>
+        <a href="javascript:;" class="a-save">保存</a>
+        <a href="javascript:;" class="a-dele">删除</a>
+        <a href="javascript:;" class="a-use">使用</a>
+    </div>
+</li>
 <div id="chart-temp" class="chart-temp" style="display: none;">
     <div class="bar top-bar"></div>
     <div class="bar right-bar"></div>

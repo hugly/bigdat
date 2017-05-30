@@ -56,7 +56,7 @@ html,body{ height: 100%; overflow: hidden; }
   .content{ position: relative; margin-right: 0; .trs(); overflow: scroll;
     .main-content{ width: 1200px; height: 1200px; background-color: #eee; }
   }
-  .right-silder{ float: right; width: 399px; border-left: 1px solid #999; margin-right: 0; .trs();
+  .right-silder{ float: right; width: 399px; border-left: 1px solid #999; margin-right: -400px; .trs();
     .r-title{ height: 39px; border-bottom: 1px solid #ccc;
       ul{ position: relative; background-color: #565669; .cf();
         li:first-child{ border-right: 1px solid #ccc; }
@@ -75,7 +75,7 @@ html,body{ height: 100%; overflow: hidden; }
               input[type='text'],input[type='number']{ width: 200px; }
               input[type='color']{ width: 120px; }
               select{ height: 30px; padding: 5px 0; }
-              textarea{ width: 360px; padding: 10px; box-sizing: border-box; min-height: 200px; }
+              textarea{ width: 360px; padding: 10px; box-sizing: border-box; min-height: 400px; }
             }
             div.spec{ margin-left: 0; }
             .r-ul{ width: 360px; position: relative; border-left: 1px solid #ccc; border-top: 1px solid #ccc;
@@ -83,11 +83,12 @@ html,body{ height: 100%; overflow: hidden; }
                 .a-item{ float: left; width: 89px; height: 30px; line-height: 30px; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc; position: relative; .cf();
                   span{ display: inline-block; width: 85px; padding: 0 2px; height: 30px; line-height: 30px; .omit();  }
                   input{ display: none; width: 81px; height: 14px; line-height: 14px; padding: 8px 4px; border: none; }
-                  a{ display: inline-block; margin: 0 2px; height: 30px; line-height: 30px; text-align: center; }
+                  a{ display: inline-block; margin: 0 1px; height: 30px; line-height: 30px; text-align: center; }
                   a:hover{ text-decoration: underline; }
                   a.a-save{ display: none; color: #41da81; }
                   a.a-edit{ color: #09f; }
                   a.a-dele{ color: #bd2c00; }
+                  a.a-use{ color: #f95656; }
                 }
               }
               .r-add{ width: 359px; height: 30px; line-height: 30px; text-align: center; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc; cursor: pointer; }

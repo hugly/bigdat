@@ -777,7 +777,7 @@
 
 //ajax
 AJAX = {
-    url: "http://123.207.7.73:8012/", //图片站点地址
+    url: "http://123.207.7.73:8012/", //固定地址
     ajax:function(opt){
         var url = this.url + opt.url,
             data = opt.data || {},

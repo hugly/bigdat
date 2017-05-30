@@ -1,6 +1,6 @@
 /*
 @ project:hugly$64617842@qq.com
-@ date:2017-05-29
+@ date:2017-05-30
 */
 .scroller_vertical,
 .scroller_horizontal {
@@ -549,7 +549,7 @@ body {
   float: right;
   width: 399px;
   border-left: 1px solid #999;
-  margin-right: 0;
+  margin-right: -400px;
   will-change: all;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -647,7 +647,7 @@ body {
   width: 360px;
   padding: 10px;
   box-sizing: border-box;
-  min-height: 200px;
+  min-height: 400px;
 }
 .container .right-silder .r-container .c-ul .c-item .r-item div.spec {
   margin-left: 0;
@@ -712,7 +712,7 @@ body {
 }
 .container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item a {
   display: inline-block;
-  margin: 0 2px;
+  margin: 0 1px;
   height: 30px;
   line-height: 30px;
   text-align: center;
@@ -729,6 +729,9 @@ body {
 }
 .container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item a.a-dele {
   color: #bd2c00;
+}
+.container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-li .a-item a.a-use {
+  color: #f95656;
 }
 .container .right-silder .r-container .c-ul .c-item .r-item .r-ul .r-add {
   width: 359px;
