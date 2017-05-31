@@ -52,11 +52,11 @@
 
                 self.publishPage(obj.attr('data-id'),function(){
                     // if(oE2.hasClass('has-color')){
-                        oE1.show();
-                        oE2.removeClass('has-color');
+                    //     oE1.show();
+                    //     oE2.removeClass('has-color');
                     // }else{
-                    //     oE1.hide();
-                    //     oE2.addClass('has-color');
+                        oE1.hide();
+                        oE2.addClass('has-color');
                     // }
                 });
                 return false;
@@ -196,9 +196,10 @@
         },
         //删除现有模板
         deleTemplate:function(id){
+            var _this = this;
             AJAX.ajax({
                 url:'api/ModulePage/Delete',
-                type:'post',
+                type:'get',
                 data:{
                     'ID':id
                 },
@@ -207,7 +208,10 @@
                     $.message({
                         type: "success",
                         skin: 0,
-                        str: '操作成功'
+                        str: '操作成功',
+                        subCallback:function(){
+                            _this.getTemplateInfo();
+                        }
                     });
                 }
             });
@@ -361,13 +365,9 @@
         //发布
         publishPage:function(id,fn){
             AJAX.ajax({
-                url:'api/ModulePage/Publish',
+                url:'api/ModulePage/Publish?pageID='+id,
                 type: 'post',
-                data:{
-                    pageID:id
-                },
                 callback:function(rs){
-                    console.log(rs);
                     fn && fn();
                     $.message({
                         type: "success",

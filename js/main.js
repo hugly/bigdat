@@ -32,7 +32,12 @@ $(document).ready(function(){
                 oDragTem        = $('#drag-temp'),
                 oChartTem       = $('#chart-temp'),
                 oLeftSilder     = $('.left-sidebar'),
-                oRightSilder    = $('.right-silder');
+                oRightSilder    = $('.right-silder'),
+                oBackBtn        = $('.back');
+
+            oBackBtn.on('click',this,function(){
+                window.location.href = 'list.html';
+            });
 
             //操作区域的删除操作
             oMainContent.on('click','.chart-temp .dele-btn',function(){
